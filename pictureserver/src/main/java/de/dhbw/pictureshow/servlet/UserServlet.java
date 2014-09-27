@@ -33,7 +33,7 @@ public class UserServlet extends HttpServlet {
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     log.debug("UserServlet get");
 
-    transaction.begin();
+    transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
     Collection<User> users = userDao.list();
 
     User user = new User();
