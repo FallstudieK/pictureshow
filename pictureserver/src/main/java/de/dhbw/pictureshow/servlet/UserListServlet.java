@@ -41,13 +41,13 @@ public class UserListServlet extends HttpServlet{
             transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
             Collection<USERS> userlist = userListDao.list();
 
-            USERS user = new USERS();
-            user.setName("User " + userlist.size());
-            userListDao.persist(user);
+            //USERS user = new USERS();
+            //user.setName("User " + userlist.size());
+            //userListDao.persist(user);
             transaction.commit();
 
-            userlist = new ArrayList<>(userlist); // cloning the read-only list so that we can add something
-            userlist.add(user);
+           userlist = new ArrayList<>(userlist); // cloning the read-only list so that we can add something
+           //userlist.add(user);
 
 
             response.setContentType("text/html");
