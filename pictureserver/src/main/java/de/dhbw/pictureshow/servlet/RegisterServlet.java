@@ -45,9 +45,9 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            out.println("<html>");
-            out.println("<head><title>Register</title></head>");
-            out.println("<body>"); //in body sind die Java Befehle
+           // out.println("<html>");
+            //out.println("<head><title>Register</title></head>");
+            //out.println("<body>"); //in body sind die Java Befehle
             String userName = request.getParameter("user"); //hier bekommt man eingabe aus userfeld
             String password = request.getParameter("password"); //hier wird HTML von Java aufgefangen
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
@@ -57,8 +57,8 @@ public class RegisterServlet extends HttpServlet {
             // out.println("<h2>Hallo " + userName + "!</h2>"); //Printed: Namen den man eingegeben hat
             //out.println("<a href=\"login\">Zurück</a>"); //Link mit Zurück implementiert
 
-            String def_user ="Chani";
-            String def_password="1234";
+            //String def_user ="Chani";
+           // String def_password="1234";
 
             transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
             Collection<USERS> userlist = userListDao.list();
@@ -71,27 +71,32 @@ public class RegisterServlet extends HttpServlet {
             transaction.commit();
             log.debug("Commit Successful");
 
-            if (userName != null && !userName.trim().isEmpty()) {
-               if (userName.equals(def_user) && password.equals(def_password)) { //Prüfen: ist was in die Felder eingefügt worden
+            out.println("<html> <head> <title> Erfolgreich Registriert! </title> " +
+                    "<h1> Herzlichen Glückwunsch " + userName + "! </h1> </head> " +
+                    "<body> Du hast dich erfolgreich registriert! </br>" +
+                    "<a href=\"userlist\"> Alle User anzeigen. </a> </body> </html>");
+
+           // if (userName != null && !userName.trim().isEmpty()) {
+             //  if (userName.equals(def_user) && password.equals(def_password)) { //Prüfen: ist was in die Felder eingefügt worden
                     // Name vorhanden -> begruessen
-                 out.println("<h2>Hallo " + userName + "!</h2>"); //Printed: Namen den man eingegeben hat
-                out.println("<a href=\"userlist\">Zurück</a>"); //Link mit Zurück implementiert
-                }
-            }else {
+               //  out.println("<h2>Hallo " + userName + "!</h2>"); //Printed: Namen den man eingegeben hat
+              //  out.println("<a href=\"userlist\">Zurück</a>"); //Link mit Zurück implementiert
+              //  }
+            //}else {
                 // kein Name -> Eingabeformular anzeigen
-                out.println("<h2>Registrierung</h2>"); //h2 ist die Übeschrift
-                out.println("<form method=\"POST\" action=\"login\">");//formular wird ausgegeben; hier post methode
-                out.println("Benutzer");
-                out.println("<input type=\"text\" name=\"user\">");//inputfeld text für user
-                out.println("E-mail:");
-                out.println("<input type=\"email\" name=\"email\">");//inputfeld text für user
-                out.println("Passwort");
-                out.println("<input type=\"password\" name=\"password\">");//input feld text für user
-                out.println("<input type=\"submit\" value=\"Register\">"); //submit Button
-                out.println("</form>");
-            }
-            out.println("</body>");
-            out.println("</html>");
+               // out.println("<h2>Registrierung</h2>"); //h2 ist die Übeschrift
+               // out.println("<form method=\"POST\" action=\"login\">");//formular wird ausgegeben; hier post methode
+                //out.println("Benutzer");
+                //out.println("<input type=\"text\" name=\"user\">");//inputfeld text für user
+                //out.println("E-mail:");
+                //out.println("<input type=\"email\" name=\"email\">");//inputfeld text für user
+                //out.println("Passwort");
+               //out.println("<input type=\"password\" name=\"password\">");//input feld text für user
+                //out.println("<input type=\"submit\" value=\"Register\">"); //submit Button
+                //out.println("</form>");
+            //}
+            //out.println("</body>");
+            //out.println("</html>");
         } finally {
             if (out != null) {
                 out.close();
