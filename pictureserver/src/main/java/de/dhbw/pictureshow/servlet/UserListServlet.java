@@ -54,7 +54,10 @@ public class UserListServlet extends HttpServlet{
             response.setBufferSize(8192);
             try (PrintWriter out = response.getWriter()) {
                 out.println("<html lang=\"en\"><head><title>Benutzerliste</title></head>");
-
+                out.println("<form name=\"input\" method=\"POST\" action=\"/pictureserver/picture\">  " +
+                                "<input type=\"submit\" value=\"Zu meinen Bildern\"> </form>");
+                out.println("<form name=\"input\" method=\"POST\" action=\"/pictureserver/addpicture\">  " +
+                        "<input type=\"submit\" value=\"Bild hinzufügen\"> </form>");
                 // then write the data of the response
                 out.println("<body  bgcolor=\"#ffffff\">"
                         + "<h2>Liste aller Benutzer:</br> </h2>" +
