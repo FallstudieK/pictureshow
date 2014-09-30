@@ -59,6 +59,9 @@ public class AddPictureServlet extends HttpServlet {
             out.println("<body  bgcolor=\"#ffffff\">"
                     + "<h2>Added Picture:</h2>");
             out.println(picture);
+            out.println("<form name=\"input\"  action=\"/pictureserver/picture\" method=\"get\">  " +
+                    "<input type=\"hidden\" name=\"userName\" value="+ userName+" /> " +
+                    "<input type=\"submit\" value=\"Zu meinen Bildern\"> </form>");
 
            // for(PICTURE p: pictures) {
              //   out.println(p + "<br/>");
