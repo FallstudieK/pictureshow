@@ -58,8 +58,8 @@ public class PictureServlet extends HttpServlet {
                 out.println(p + "<br/>");
             }
 
-            String username = request.getParameter("username");
-            if (username != null && username.length() > 0) {
+           // String username = request.getParameter("username");
+            if (userName != null && userName.length() > 0) {
                 RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher("/response");
 
