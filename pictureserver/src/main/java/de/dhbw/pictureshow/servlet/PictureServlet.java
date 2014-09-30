@@ -44,7 +44,7 @@ public class PictureServlet extends HttpServlet {
         pictures = new ArrayList<>(pictures); // cloning the read-only list so that we can add something
 
 
-
+        String  userName = request.getParameter("userName");
         response.setContentType("text/html");
         response.setBufferSize(8192);
         try (PrintWriter out = response.getWriter()) {
@@ -52,7 +52,7 @@ public class PictureServlet extends HttpServlet {
 
             // then write the data of the response
             out.println("<body  bgcolor=\"#ffffff\">"
-                    + "<h2>Known users:</h2>");
+                    + "<h2>Hello " + userName +" Deine Bilder:</h2>");
 
             for (PICTURE p : pictures) {
                 out.println(p + "<br/>");
