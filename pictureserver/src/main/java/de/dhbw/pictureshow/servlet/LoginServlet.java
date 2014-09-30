@@ -49,18 +49,36 @@ public class LoginServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head><title>Login!</title></head>");
             out.println("<body>"); //in body sind die Java Befehle
+            boolean loginTest = false;
            String  userName = request.getParameter("user"); //hier bekommt man eingabe aus userfeld
             String password = request.getParameter("password"); //hier wird HTML von Java aufgefangen
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
 
+            transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
+            Collection<USERS> userlist = userListDao.list();
+            transaction.commit();
 
-            out.println("<html> <head> <title> Erfolgreich Registriert! </title> " +
-                    "<h1> Herzlichen Glückwunsch " + userName + "! </h1> </head> " +
-                    "<body> Du hast dich erfolgreich angemeldet! </br>" +
-                    "<a href=\"userlist?userName=" + userName +"\"> Alle User anzeigen. </a> </body> </html>");
+            userlist = new ArrayList<>(userlist); // cloning the read-only list so that we can add something
+            //userlist.add(user);
 
+            for (USERS u : userlist) {
+                String Owner = u.getName();
+                if (userName.equals(Owner)) {
+                    loginTest = true;
+                }
+            }
 
+            if(loginTest) {
+                out.println("<html> <head> <title> Erfolgreich Registriert! </title> " +
+                        "<h1> Herzlichen Glückwunsch " + userName + "! </h1> </head> " +
+                        "<body> Du hast dich erfolgreich angemeldet! </br>" +
+                        "<a href=\"userlist?userName=" + userName + "\"> Alle User anzeigen. </a> </body> </html>");
 
+            }
+            else {
+out.println("bitte registrieren sie sich !");
+
+            }
             // if (userName != null && !userName.trim().isEmpty()) { //Prüfen: ist was in die Felder eingefügt worden
             // Name vorhanden -> begruessen
             // out.println("<h2>Hallo " + userName + "!</h2>"); //Printed: Namen den man eingegeben hat
