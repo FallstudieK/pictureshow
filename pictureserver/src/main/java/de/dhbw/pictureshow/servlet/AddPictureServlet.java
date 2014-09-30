@@ -35,6 +35,7 @@ public class AddPictureServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("UserServlet get");
+
         String userName = request.getParameter("userName");
         transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
         Collection<PICTURE> pictures = pictureDao.list();

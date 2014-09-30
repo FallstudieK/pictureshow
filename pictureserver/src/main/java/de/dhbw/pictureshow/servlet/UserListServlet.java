@@ -49,18 +49,20 @@ public class UserListServlet extends HttpServlet{
            userlist = new ArrayList<>(userlist); // cloning the read-only list so that we can add something
            //userlist.add(user);
 
-
+            String  userName = request.getParameter("userName");
             response.setContentType("text/html");
             response.setBufferSize(8192);
             try (PrintWriter out = response.getWriter()) {
-                out.println("<html lang=\"en\"><head><title>Benutzerliste</title></head>");
+                out.println("<html lang=\"en\"><head><title>Benutzerliste </title></head>");
                 out.println("<form name=\"input\" method=\"POST\" action=\"/pictureserver/picture\">  " +
                                 "<input type=\"submit\" value=\"Zu meinen Bildern\"> </form>");
                 out.println("<form name=\"input\" method=\"POST\" action=\"/pictureserver/addpicture\">  " +
-                        "<input type=\"submit\" value=\"Bild hinzufügen\"> </form>");
+                        "<input type=\"submit\" value=\"Bild hinzufügen\">" +
+                        //"<input type=\"hidden\" value=userName " +
+                        " </form>");
                 // then write the data of the response
                 out.println("<body  bgcolor=\"#ffffff\">"
-                        + "<h2>Liste aller Benutzer:</br> </h2>" +
+                        + "<h2>Liste aller Benutzer: "+ userName + "</br> </h2>" +
                         "<h3>E-mail ; Passwort</h3>");
 
                 for(USERS u: userlist) {

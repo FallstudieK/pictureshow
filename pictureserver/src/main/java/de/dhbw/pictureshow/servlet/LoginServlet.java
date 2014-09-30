@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head><title>Login!</title></head>");
             out.println("<body>"); //in body sind die Java Befehle
-            String userName = request.getParameter("user"); //hier bekommt man eingabe aus userfeld
+           String  userName = request.getParameter("user"); //hier bekommt man eingabe aus userfeld
             String password = request.getParameter("password"); //hier wird HTML von Java aufgefangen
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
 
@@ -57,7 +57,7 @@ public class LoginServlet extends HttpServlet {
             out.println("<html> <head> <title> Erfolgreich Registriert! </title> " +
                     "<h1> Herzlichen Glückwunsch " + userName + "! </h1> </head> " +
                     "<body> Du hast dich erfolgreich angemeldet! </br>" +
-                    "<a href=\"userlist\"> Alle User anzeigen. </a> </body> </html>");
+                    "<a href=\"userlist?userName=" + userName +"\"> Alle User anzeigen. </a> </body> </html>");
 
 
 
