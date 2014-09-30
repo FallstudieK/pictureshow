@@ -58,8 +58,6 @@ public class PictureServlet extends HttpServlet {
 
             for (PICTURE p : pictures) {
                 String pictureOwner = p.getUsername();
-
-                out.println(pictureOwner);
                 if (userName.equals(pictureOwner)) {
                     out.println(p + "<br/>");
                 }
