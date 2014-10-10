@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet {
 
             transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
             Collection<USERS> userlist = userListDao.list();
-            transaction.commit();
+
 
             userlist = new ArrayList<>(userlist); // cloning the read-only list so that we can add something
             //userlist.add(user);
@@ -119,6 +119,8 @@ out.println("bitte registrieren sie sich !");
             //}
           // out.println("</body>");
            // out.println("</html>");
+
+            transaction.commit();
         } finally {
             if (out != null) {
                 out.close();
