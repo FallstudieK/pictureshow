@@ -46,44 +46,36 @@ public class LoginServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            out.println("<html>");
-            out.println("<head><title>Login!</title></head>");
-            out.println("<body>"); //in body sind die Java Befehle
-            boolean loginTest = false;
             String  userName = request.getParameter("user"); //hier bekommt man eingabe aus userfeld
             String password = request.getParameter("password"); //hier wird HTML von Java aufgefangen
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
 
             transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
-            USERS user=null;
-            Collection<USERS> userlist = userListDao.findByName(userName);
+                USERS user=null;
+                Collection<USERS> userlist = userListDao.findByName(userName);
             transaction.commit();
 
             if(userlist.size()>0) {
                 log.debug(userlist.toString());
-                //user = userlist.iterator().next();
 
-
-                //userlist = new ArrayList<>(userlist); // cloning the read-only list so that we can add something
-                //userlist.add(user);
-
-               for (USERS u : userlist) {
-                if (userName.equals(u.getName())) {
-                    if (password.equals(u.getPassword())) {
-
-                    String url = "http://localhost:8087/pictureserver/startseite.html?userName=" + userName;
-                    response.sendRedirect(url);
-                    }
-                else {
-                    out.println("<h2> falsches Passwort </h2> </body> </html>");
+                for (USERS u : userlist) {
+                    if (userName.equals(u.getName())) {
+                        if (password.equals(u.getPassword())) {
+                            String url = "http://localhost:8087/pictureserver/startseite.html?userName=" + userName;
+                            response.sendRedirect(url);
+                        }
+                    else {
+                        out.println("<h2> falsches Passwort </h2> </body> </html>");
                         String url ="http://localhost:8087/pictureserver/Login.html?userName=" + userName + "&msg=FalschesPasswort";
                         response.sendRedirect(url);
-                }}
-            }}
-
-            else{String url ="http://localhost:8087/pictureserver/Register.html?userName=" + userName;
-                response.sendRedirect(url);}
-
+                    }
+                    }
+                }
+            }
+            else{
+                String url ="http://localhost:8087/pictureserver/Register.html?userName=" + userName;
+                response.sendRedirect(url);
+            }
         } finally {
             if (out != null) {
                 out.close();
