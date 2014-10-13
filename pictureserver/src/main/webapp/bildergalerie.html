@@ -43,14 +43,50 @@
   <div id="container">
   
 
+<style>
+  .thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+</style>
+ 
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
+ 
+<script>
+  function dateiauswahl(evt) {
+    var files = evt.target.files; // Neues "files" Objekt zur Speicherung der ausgewählten Dateien.
+ 
+    // Auslesen der gespeicherten Dateien durch Schleife.
+    for (var i = 0, f; f = files[i]; i++) {
+ 
+      // Nur weitermachen, wenn Dateien Bilder sind.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+ 
+      var reader = new FileReader(); //Lege neues Filereader-Objekt an
+ 
+      // Dateiinformationen auslesen.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Thumbnail erstellen
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', theFile.name, '"/>'].join('');
+          document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+ 
+      // Dateipfad aus Datei erzeugen.
+      reader.readAsDataURL(f);
+    }
+  }
+  // Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu ausführen.
+  document.getElementById('files').addEventListener('change', dateiauswahl, false);
+</script>
 
- <form action="upload.php" method="post"  enctype="multipart/form-data">
-<input type="file" multiple="multiple" name="FileUpload1" id="FileUpload1" accept="image/gif, image/jpeg, image/png" />
-<input type="submit" value="Hochladen">
-</form> 
-<?php 
-move_uploaded_file($_FILES['datei']['tmp_name'], "upload/datei.txt"); 
-?> 
 
 
     

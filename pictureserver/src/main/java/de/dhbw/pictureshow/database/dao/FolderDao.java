@@ -8,8 +8,9 @@ import javax.persistence.Query;
 import java.util.Collection;
 
 /**
- *
+ * Created by zaiser on 13.10.2014.
  */
+
 @ApplicationScoped
 public class FolderDao extends JpaDao<UuidId,Folder> {
     public FolderDao() {
