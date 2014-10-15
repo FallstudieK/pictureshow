@@ -50,14 +50,15 @@ public class LoginServlet extends HttpServlet {
             String password = request.getParameter("password"); //hier wird HTML von Java aufgefangen
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
 
-            transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
+            //transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
                 USERS user=null;
                 Collection<USERS> userlist = userListDao.findByName(userName);
-            transaction.commit();
+           // transaction.commit();
 
             if(userlist.size()>0) {
                 log.debug(userlist.toString());
-
+                //user= userlist.iterator().next();
+                //log.debug(user.toString());
                 for (USERS u : userlist) {
                     if (userName.equals(u.getName())) {
                         if (password.equals(u.getPassword())) {
@@ -65,7 +66,7 @@ public class LoginServlet extends HttpServlet {
                             response.sendRedirect(url);
                         }
                     else {
-                        out.println("<h2> falsches Passwort </h2> </body> </html>");
+
                         String url ="http://localhost:8087/pictureserver/Login.html?userName=" + userName + "&msg=FalschesPasswort";
                         response.sendRedirect(url);
                     }
