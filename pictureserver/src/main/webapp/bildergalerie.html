@@ -125,6 +125,13 @@
  
       // Dateipfad aus Datei erzeugen.
      file= reader.readAsDataURL(f);
+        window.BlobBuilder = window.MozBlobBuilder || window.WebKitBlobBuilder ||
+        window.BlobBuilder;
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/server', true);
+        xhr.send(file);
     }
   }
   // Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu ausführen.
@@ -178,7 +185,15 @@ upload(files);
   dropZone.addEventListener('drop', handleFileSelect, false);
 </script>
 
+        <center>
+            <form method="post" action="uploadFile" enctype="multipart/form-data">
+                Select file to upload:
 
+                <input type="file" name="uploadFile" multiple/>
+                <br/><br/>
+                <input type="submit" value="Upload" />
+            </form>
+        </center>
         </div>
   </div>
 </body>
