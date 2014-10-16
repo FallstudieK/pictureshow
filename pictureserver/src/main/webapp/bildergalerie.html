@@ -1,63 +1,107 @@
 <!DOCTYPE html>
 <html>
-<head> 
-<title>I-mag-Imago | Erinnerungen fürs Leben</title>
-<meta charset="utf-8">
-<link rel="stylesheet" href="styles/layout.css" type="text/css" />
+<head>
+    <title>I-mag-Imago | Erinnerungen fürs Leben</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 </head>
 <body id="top">
 <div class="wrapper col1">
-  <div id="topbar">
-    <!--<div id="search">
-      <form action="#" method="post">
-        <fieldset>
-          <legend>Site Search</legend>
-          <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
+    <div id="topbar">
+        <!--<div id="search">
+          <form action="#" method="post">
+            <fieldset>
+              <legend>Site Search</legend>
+              <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
           <input type="submit" name="go" id="go" value="GO" />
         </fieldset>
       </form>
     </div>-->
-  </div>
+    </div>
 </div>
 <div class="wrapper col2">
-  <div id="header">
-    <div id="logo">
-      <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
-      <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
-    </div>
-    <ul id="topnav">
-      <li><a href="#" style="color:#ffd700;">Bildergalerie</a>
-        <ul>
-          <li><a href="bildergalerie.html">Ordner 1</a></li>
-          <li><a href="bildergalerie.html">Ordner 2</a></li>
-          <li><a href="bildergalerie.html">Ordner 3</a></li>
+    <div id="header">
+        <div id="logo">
+            <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
+            <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
+        </div>
+        <ul id="topnav">
+            <li><a href="#" style="color:#ffd700;">Bildergalerie</a>
+                <ul>
+                    <li><a href="bildergalerie.html">Ordner 1</a></li>
+                    <li><a href="bildergalerie.html">Ordner 2</a></li>
+                    <li><a href="bildergalerie.html">Ordner 3</a></li>
+                </ul>
+            </li>
+            <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
+            <li class="active"><a href="startseite.html" style="color:#ffd700;">Startseite</a></li>
         </ul>
-      </li>
-      <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
-      <li class="active"><a href="startseite.html" style="color:#ffd700;">Startseite</a></li>
-    </ul>
-    <br class="clear" />
-  </div>
+        <br class="clear" />
+    </div>
 </div>
 <div class="wrapper col5">
-  <div id="container">
-  
+    <div id="container">
 
-<style>
-  .thumb {
-    height: 75px;
-    border: 1px solid #000;
-    margin: 10px 5px 0 0;
-  }
-</style>
- 
-<input type="file" id="files" name="files[]" multiple />
-<output id="list"></output>
- 
-<script>
+
+        <style>
+            .thumb {
+            height: 75px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+            }
+        </style>
+
+        <input type="file" id="files" name="files[]" multiple />
+        <output id="list"></output>
+
+        <form name="save" method="POST" onclick="upload()" action="http://localhost:8087/pictureserver/savepicture">     <!--Method="post" or "get" what is the difference? which on eto use here?
+                                                                                            Target URL needs to change!!-->
+            <p>
+                <input id="button" type="submit" value="Speichern">
+            </p>
+        </form>
+                                                              /*  <script>
+                                                                window.BlobBuilder = window.MozBlobBuilder || window.WebKitBlobBuilder ||
+                                                                window.BlobBuilder;
+
+                                                                function upload(blobOrFile) {
+                                                                var xhr = new XMLHttpRequest();
+                                                                xhr.open('POST', '/server', true);
+                                                                xhr.onload = function(e) { ... };
+                                                                xhr.send(blobOrFile);
+                                                                }
+
+                                                                                      /*  document.querySelector('input[type="file"]').addEventListener('change', function(e) {
+                                                                                        var blob = this.files[0];
+
+                                                                                        const BYTES_PER_CHUNK = 1024 * 1024; // 1MB chunk sizes.
+                                                                                        const SIZE = blob.size;
+
+                                                                                        var start = 0;
+                                                                                        var end = BYTES_PER_CHUNK;
+
+                                                                                        while(start < SIZE) {
+
+                                                                                        // Note: blob.slice has changed semantics and been prefixed. See http://goo.gl/U9mE5.
+                                                                                        if ('mozSlice' in blob) {
+                                                                                        var chunk = blob.mozSlice(start, end);
+                                                                                        } else {
+                                                                                        var chunk = blob.webkitSlice(start, end);
+                                                                                        }
+
+                                                                                        upload(chunk);
+
+                                                                                        start = end;
+                                                                                        end = start + BYTES_PER_CHUNK;
+                                                                                        }
+                                                                                        }, false);
+
+                                                                                          })();*/
+                                                        </script>*/
+        <script>
   function dateiauswahl(evt) {
     var files = evt.target.files; // Neues "files" Objekt zur Speicherung der ausgewählten Dateien.
- 
+
     // Auslesen der gespeicherten Dateien durch Schleife.
     for (var i = 0, f; f = files[i]; i++) {
  
@@ -65,7 +109,7 @@
       if (!f.type.match('image.*')) {
         continue;
       }
- 
+        alert(files);
       var reader = new FileReader(); //Lege neues Filereader-Objekt an
  
       // Dateiinformationen auslesen.
@@ -80,61 +124,62 @@
       })(f);
  
       // Dateipfad aus Datei erzeugen.
-      reader.readAsDataURL(f);
+     file= reader.readAsDataURL(f);
     }
   }
   // Auf neue Auswahl reagieren und gegebenenfalls Funktion dateiauswahl neu ausführen.
   document.getElementById('files').addEventListener('change', dateiauswahl, false);
+
+upload(files);
+
+   window.BlobBuilder = window.MozBlobBuilder || window.WebKitBlobBuilder ||
+        window.BlobBuilder;
+
+        function upload(blobOrFile) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/server', true);
+       // xhr.onload = function(e) { ... };
+        xhr.send(blobOrFile);
+        }
 </script>
 
 
 
-    
-  
-    <!--<div id="content">
-      <h2 style="color:#ffd700;">Write A Comment</h2>
-      <div id="respond">
-        <form action="#" method="post">
-          <p>
-            <input type="text" name="name" id="name" value="" size="22" />
-            <label for="name"><small>Name (required)</small></label>
-          </p>
-          <!--
-		  <p>
-            <input type="text" name="email" id="email" value="" size="22" />
-            <label for="email"><small>Mail (required)</small></label>
-          </p>
-		  -->
-          <!--<p>
-            <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
-            <label for="comment" style="display:none;"><small>Comment (required)</small></label>
-          </p>
-          <p>
-            <input name="submit" type="submit" id="submit" value="Submit Form" />
-            &nbsp;
-            <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form" />
-          </p>
-        </form>
-      </div>
-    </div> -->
-    <!--<div id="column">
-      <div class="subnav">
-        <h2>Benutzer Navigation</h2>
-        <ul>
-		  <li><a href="#">Bildergalerie</a>
-            <ul>
-              <li><a href="ordner1.html">Ordner 1</a></li>
-              <li><a href="ordner2.html">Ordner 2</a></li>
-              <li><a href="ordner3.html">Ordner 2</a></li>
-               <!-- <ul>
-                  <li><a href="#">Unterordner 1</a></li>
-                  <li><a href="#">Unterordner 2</a></li>
-                </ul>
-              </li>-->
-            <!--</ul>
-          </li>
-          <li><a href="startseite.html">Startseite</a></li>
-        </ul>
-      </div>-->
+        // Drag and Drop:
+        <div id="drop_zone">Drop files here</div>
+        <output id="list2"></output>
+
+        <script>
+  function handleFileSelect(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+
+    var files = evt.dataTransfer.files; // FileList object.
+
+    // files is a FileList of File objects. List some properties.
+    var output = [];
+    for (var i = 0, f; f = files[i]; i++) {
+      output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                  f.size, ' bytes, last modified: ',
+                  f.lastModifiedDate.toLocaleDateString(), '</li>');
+    }
+    document.getElementById('list2').innerHTML = '<ul>' + output.join('') + '</ul>';
+  }
+
+  function handleDragOver(evt) {
+    evt.stopPropagation();
+    evt.preventDefault();
+    evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+  }
+
+  // Setup the dnd listeners.
+  var dropZone = document.getElementById('drop_zone');
+  dropZone.addEventListener('dragover', handleDragOver, false);
+  dropZone.addEventListener('drop', handleFileSelect, false);
+</script>
+
+
+        </div>
+  </div>
 </body>
 </html>
