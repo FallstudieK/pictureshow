@@ -8,7 +8,24 @@
 </head>
 
 <body id="top">
+<script type="text/javascript">
 
+
+
+function GetUrlValue(VarSearch){
+    var SearchString = window.location.search.substring(1);
+    var VariableArray = SearchString.split('&');
+    for(var i = 0; i < VariableArray.length; i++){
+        var KeyValuePair = VariableArray[i].split('=');
+        if(KeyValuePair[0] == VarSearch){
+            return KeyValuePair[1];
+        }
+    }
+}
+
+alert(GetUrlValue('msg'));
+
+</script>
 <div class="wrapper col1">
     <div id="topbar">
     </div>
@@ -30,18 +47,18 @@
     <form name="input" method="POST" action="http://localhost:8087/pictureserver/login">     <!--Method="post" or "get" what is the difference? which on eto use here?
                                                                                             Target URL needs to change!!-->
 
-        <p id="textfeld">
-            Benutzer: <br><input type="text" name="user"><br>
-        </p>
+    <p id="textfeld">
+        Benutzer: <br><input type="text" name="user"><br>
+    </p>
 
-        <p id="textfeld">
-            Passwort: <br><input type="password" name="password"><br>
-        </p>
+    <p id="textfeld">
+        Passwort: <br><input type="password" name="password"><br>
+    </p>
 
-        <p>
-            <input id="button" type="submit" value="Einloggen">
-        </p>
-    </form>
+    <p>
+        <input id="button" type="submit" value="Einloggen">
+    </p>
+</form>
 </div>
 
 </body>

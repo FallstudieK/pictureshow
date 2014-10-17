@@ -37,12 +37,14 @@ public class AddPictureServlet extends HttpServlet {
         log.debug("UserServlet get");
 
         String userName = request.getParameter("userName");
+        String fileName=request.getParameter("fileName");
         transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
         Collection<PICTURE> pictures = pictureDao.list();
 
         PICTURE picture = new PICTURE();
         picture.setTitle("BILD " + Math.random());
         picture.setUsername(userName);
+        picture.setFile(fileName);
         pictureDao.persist(picture);
         transaction.commit();
 
