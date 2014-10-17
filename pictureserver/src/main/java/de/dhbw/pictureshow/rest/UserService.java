@@ -14,18 +14,21 @@ import java.util.Collection;
 ///**
 // *
 // */
+// rest/api/user
+// kann xml und jason generieren
+
 @Path("/api/user")
 @Produces({"application/json"}) // mime type
-@Singleton
+@Singleton  //von dieser klasse kann nur ein objekt erstellt werden --> man geht davon aus dass Default singelton ist
 public class UserService {
  private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
   @Inject
-  UserDao userDao;
+  UserDao userDao; //automatische Verbindung zu Userklassen
 
   @Path("/list")
   @GET
-  public Collection<User> list() {
+  public Collection<User> list() {//Collection von Usern
     log.debug("List users");
     return userDao.list();
   }
