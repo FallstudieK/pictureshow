@@ -17,13 +17,14 @@ public class PICTURE extends PersistentObject{
 
     private String title;
     private String username;
-
+    private String file;
     @Lob
     private byte[] picture;
 
     @ManyToOne
     @JoinColumn(name = "uuid")
     private User user;
+
     public String getUsername() {
         return username;
     }
@@ -31,8 +32,6 @@ public class PICTURE extends PersistentObject{
     public void setUsername(String username) {
         this.username = username;
     }
-
-
 
     public User getUser() {
         return user;
@@ -57,6 +56,15 @@ public class PICTURE extends PersistentObject{
     public void setPicture(byte[] picture) {
         this.picture = picture;
     }
+
+    public String getFile() {
+        return file;
+    }
+
+    public void setFile(String file) {
+        this.file = file;
+    }
+
 
     @Override
     public String toString() {
