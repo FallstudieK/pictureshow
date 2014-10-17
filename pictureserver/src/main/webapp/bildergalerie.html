@@ -51,9 +51,9 @@
             }
         </style>
 
-        <input type="file" id="files" name="files[]" multiple />
-        <output id="list"></output>
-
+       <!--<input type="file" id="files" name="files[]" multiple />
+        <output id="list"></output>*/
+-->
         <form name="save" method="POST" onclick="upload()" action="http://localhost:8087/pictureserver/savepicture">     <!--Method="post" or "get" what is the difference? which on eto use here?
                                                                                             Target URL needs to change!!-->
             <p>
@@ -188,7 +188,8 @@ upload(files);
         <center>
             <form method="post" action="uploadFile" enctype="multipart/form-data">
                 Select file to upload:
-
+                <input type="file" id="files" name="files[]" multiple />
+                <output id="list"></output>
                 <input type="file" name="uploadFile" multiple/>
                 <br/><br/>
                 <input type="submit" value="Upload" />
