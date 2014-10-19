@@ -1,7 +1,9 @@
 package de.dhbw.pictureshow.servlet;
 
 import de.dhbw.pictureshow.database.Transaction;
+import de.dhbw.pictureshow.database.dao.FolderDao;
 import de.dhbw.pictureshow.database.dao.UserDao;
+import de.dhbw.pictureshow.domain.Folder;
 import de.dhbw.pictureshow.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,7 @@ public class UserServlet extends HttpServlet {
   private static final Logger log = LoggerFactory.getLogger(UserServlet.class);
 
   @Inject UserDao userDao;
+    @Inject FolderDao folderDao;
   @Inject Transaction transaction;
 
 
@@ -39,6 +42,14 @@ public class UserServlet extends HttpServlet {
     User user = new User();
     user.setName("User " + users.size());
     userDao.persist(user);
+
+
+     Collection<Folder> folders = folderDao.list();
+     Folder folder = new Folder();
+     folder.setFname("Testname");
+     folderDao.persist(folder);
+
+
     transaction.commit();
 
     users = new ArrayList<>(users); // cloning the read-only list so that we can add something
