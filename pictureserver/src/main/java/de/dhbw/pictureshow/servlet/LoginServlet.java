@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
      */
 
     @Inject
-    UserListDao userListDao;
+    UserDao userDao;
     @Inject
     Transaction transaction;
 
@@ -52,9 +52,9 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
 
             //transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
-            USERS loggedin = null;
-            USERS user=null;
-                Collection<USERS> userlist = userListDao.findByName(userName);
+            User loggedin = null;
+            User user=null;
+                Collection<User> userlist = userDao.findByName(userName);
             loggedin = userlist.iterator().next();
            // transaction.commit();
 
@@ -62,10 +62,10 @@ public class LoginServlet extends HttpServlet {
                 log.debug(userlist.toString());
                 //user= userlist.iterator().next();
                 //log.debug(user.toString());
-                for (USERS u : userlist) {
+                for (User u : userlist) {
                     if (userName.equals(u.getName())) {
                         if (password.equals(u.getPassword())) {
-                            String url = "http://localhost:8087/pictureserver/startseite.html?userName=" + userName;
+                            String url = "http://localhost:8087/pictureserver/startseite.jsp";
 
                             HttpSession session = request.getSession(); //des user ist jetzt die Session zugeordnet worden
                             session.setAttribute ("user", userName);
