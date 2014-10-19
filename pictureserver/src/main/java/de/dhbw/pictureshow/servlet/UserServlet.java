@@ -3,7 +3,9 @@ package de.dhbw.pictureshow.servlet;
 import de.dhbw.pictureshow.database.Transaction;
 import de.dhbw.pictureshow.database.dao.FolderDao;
 import de.dhbw.pictureshow.database.dao.UserDao;
+import de.dhbw.pictureshow.database.dao.UserListDao;
 import de.dhbw.pictureshow.domain.Folder;
+import de.dhbw.pictureshow.domain.USERS;
 import de.dhbw.pictureshow.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +31,7 @@ public class UserServlet extends HttpServlet {
 
   @Inject UserDao userDao;
     @Inject FolderDao folderDao;
+    @Inject UserListDao userlistDao;
   @Inject Transaction transaction;
 
 
@@ -43,12 +46,17 @@ public class UserServlet extends HttpServlet {
     user.setName("User " + users.size());
     userDao.persist(user);
 
+      Collection<USERS> userlist = userlistDao.list();
+
+      USERS user2 = new USERS();
+      user2.setName("User " + userlist.size());
+      userlistDao.persist(user2);
+
 
      Collection<Folder> folders = folderDao.list();
      Folder folder = new Folder();
      folder.setFname("Testname");
      folderDao.persist(folder);
-
 
     transaction.commit();
 
