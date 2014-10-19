@@ -1,5 +1,8 @@
 package de.dhbw.pictureshow.domain;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Date;
 
@@ -11,9 +14,20 @@ import java.util.Date;
 public class Folder extends PersistentObject {
     private String fname;
     private Date fdate;
-    private String userId;
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private USERS user;
 
-    public String getFname() {
+
+    public USERS getUser() {
+        return user;
+    }
+
+    public void setUser(USERS user) {
+        this.user = user;
+    }
+
+      public String getFname() {
         return fname;
     }
 
@@ -29,20 +43,13 @@ public class Folder extends PersistentObject {
         this.fdate = fdate;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
     @Override
     public String toString() {
         return "User{" +
                 "folderid='" + id + '\'' +
                 ", fname='" + fname + '\'' +
                 "date='" + fdate + '\'' +
-                "userId='" + userId + '\'' +
+                "userId='" + user + '\'' +
                 '}';
     }
 }
