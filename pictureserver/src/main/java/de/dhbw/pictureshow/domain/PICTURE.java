@@ -16,14 +16,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class PICTURE extends PersistentObject{
 
     private String title;
-    private String username;
-    private String file;
-    @Lob
-    private byte[] picture;
-
-    @ManyToOne
-    @JoinColumn(name = "uuid")
-    private User user;
 
     public String getUsername() {
         return username;
@@ -33,13 +25,34 @@ public class PICTURE extends PersistentObject{
         this.username = username;
     }
 
-    public User getUser() {
+    private String username;
+    private String file;
+    @Lob
+    private byte[] picture;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private USERS user;
+    @ManyToOne
+    @JoinColumn(name="folder_id")
+    private Folder folder;
+
+    public Folder getFolder() {
+        return folder;
+    }
+
+    public void setFolder(Folder folder) {
+        this.folder = folder;
+    }
+
+    public USERS getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(USERS user) {
         this.user = user;
     }
+
 
     public String getTitle() {
         return title;
@@ -69,6 +82,6 @@ public class PICTURE extends PersistentObject{
     @Override
     public String toString() {
         return "Picture  " +
-               title +" Nutzer: "+ username;
+               title ;
     }
 }
