@@ -15,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -51,8 +52,10 @@ public class LoginServlet extends HttpServlet {
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
 
             //transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
-                USERS user=null;
+            USERS loggedin = null;
+            USERS user=null;
                 Collection<USERS> userlist = userListDao.findByName(userName);
+            loggedin = userlist.iterator().next();
            // transaction.commit();
 
             if(userlist.size()>0) {
@@ -63,6 +66,11 @@ public class LoginServlet extends HttpServlet {
                     if (userName.equals(u.getName())) {
                         if (password.equals(u.getPassword())) {
                             String url = "http://localhost:8087/pictureserver/startseite.html?userName=" + userName;
+
+                            HttpSession session = request.getSession(); //des user ist jetzt die Session zugeordnet worden
+                            session.setAttribute ("user", userName);
+                            session.setAttribute("email", loggedin.getEmail());
+
                             response.sendRedirect(url);
                         }
                     else {
@@ -77,6 +85,9 @@ public class LoginServlet extends HttpServlet {
                 String url ="http://localhost:8087/pictureserver/Register.html?userName=" + userName;
                 response.sendRedirect(url);
             }
+
+
+
         } finally {
             if (out != null) {
                 out.close();
