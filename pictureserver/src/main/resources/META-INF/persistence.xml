@@ -9,6 +9,7 @@
 
     <class>de.dhbw.pictureshow.domain.User</class>
       <class>de.dhbw.pictureshow.domain.PICTURE</class>
+      <class>de.dhbw.pictureshow.domain.Folder</class>
       <class>de.dhbw.pictureshow.domain.USERS</class>
     <class>de.dhbw.pictureshow.domain.UuidId</class>
     <class>de.dhbw.pictureshow.domain.PersistentObject</class>
