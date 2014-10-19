@@ -16,7 +16,7 @@
 <script type="text/javascript">
 alert("You are not logged in");
 </script>
-
+<!--link zu jetzt einloggen-->
 <%} else {
 %>
 
