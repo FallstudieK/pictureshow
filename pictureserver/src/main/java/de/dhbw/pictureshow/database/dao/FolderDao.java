@@ -18,9 +18,9 @@ public class FolderDao extends JpaDao<UuidId,Folder> {
     }
 
     @SuppressWarnings("unchecked")
-    public Collection<Folder> findByName(String name) {
-        Query query = entityManager.createQuery("select f from Folder f where f.name = :name");
-        query.setParameter("name", name);
+    public Collection<Folder> findByName(String fname) {
+        Query query = entityManager.createQuery("select f from Folder f where f.fname = :fname");
+        query.setParameter("fname", fname);
         return (Collection<Folder>)query.getResultList();
     }
 }
