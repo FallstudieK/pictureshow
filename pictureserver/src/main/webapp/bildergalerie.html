@@ -3,7 +3,7 @@
 <head>
     <title>I-mag-Imago | Erinnerungen fürs Leben</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
 </head>
 <body id="top">
 <div class="wrapper col1">
@@ -23,6 +23,7 @@
     <div id="header">
         <div id="logo">
             <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
+
             <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
         </div>
         <ul id="topnav">
@@ -36,7 +37,7 @@
             <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
             <li class="active"><a href="startseite.html" style="color:#ffd700;">Startseite</a></li>
         </ul>
-        <br class="clear" />
+        <br class="clear"/>
     </div>
 </div>
 <div class="wrapper col5">
@@ -51,16 +52,17 @@
             }
         </style>
 
-       <!--<input type="file" id="files" name="files[]" multiple />
-        <output id="list"></output>*/
--->
+        <!--<input type="file" id="files" name="files[]" multiple />
+         <output id="list"></output>*/
+ -->
         <form name="save" method="POST" onclick="upload()" action="http://localhost:8087/pictureserver/savepicture">     <!--Method="post" or "get" what is the difference? which on eto use here?
                                                                                             Target URL needs to change!!-->
             <p>
                 <input id="button" type="submit" value="Speichern">
             </p>
         </form>
-                                                              /*  <script>
+        /*
+        <script>
                                                                 window.BlobBuilder = window.MozBlobBuilder || window.WebKitBlobBuilder ||
                                                                 window.BlobBuilder;
 
@@ -97,7 +99,10 @@
                                                                                         }, false);
 
                                                                                           })();*/
-                                                        </script>*/
+
+
+        </script>
+        */
         <script>
   function dateiauswahl(evt) {
     var files = evt.target.files; // Neues "files" Objekt zur Speicherung der ausgewählten Dateien.
@@ -148,8 +153,9 @@ upload(files);
        // xhr.onload = function(e) { ... };
         xhr.send(blobOrFile);
         }
-</script>
 
+
+        </script>
 
 
         // Drag and Drop:
@@ -183,19 +189,21 @@ upload(files);
   var dropZone = document.getElementById('drop_zone');
   dropZone.addEventListener('dragover', handleDragOver, false);
   dropZone.addEventListener('drop', handleFileSelect, false);
-</script>
+
+
+        </script>
 
         <center>
             <form method="post" action="uploadFile" enctype="multipart/form-data">
                 Select file to upload:
-                <input type="file" id="files" name="files[]" multiple />
+                <input type="file" id="files" name="files[]" multiple/>
                 <output id="list"></output>
-               <!-- <input type="file" name="uploadFile" multiple/>-->
+                <!-- <input type="file" name="uploadFile" multiple/>-->
                 <br/><br/>
-                <input type="submit" value="Upload" />
+                <input type="submit" value="Upload"/>
             </form>
         </center>
-        </div>
-  </div>
+    </div>
+</div>
 </body>
 </html>

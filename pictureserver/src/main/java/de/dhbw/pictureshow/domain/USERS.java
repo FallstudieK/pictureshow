@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by koeppent on 25.09.2014.
  */
 
-@Entity // also add to persistence.xml !!
+// @Entity // also add to persistence.xml !!
 @XmlRootElement // needed for REST JSON marshalling
 public class USERS extends PersistentObject{
 

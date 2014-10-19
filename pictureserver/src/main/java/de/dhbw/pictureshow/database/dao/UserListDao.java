@@ -13,20 +13,22 @@ import java.util.Collection;
  */
 
 @ApplicationScoped
-public class UserListDao extends JpaDao<UuidId,USERS> {
-        public UserListDao() {
-            super(USERS.class);
-        }
-        @SuppressWarnings("unchecked")
-        public Collection<USERS> findByEmail(String email) {
-            Query query = entityManager.createQuery("select u from Users u where u.email = :email");
-            query.setParameter("email", email);
-            return (Collection<USERS>)query.getResultList();
-        }
-    public Collection<USERS> findByName(String name) {
-        Query query = entityManager.createQuery("select u from USERS u where u.name = :name");
-        query.setParameter("name", name);
-        return (Collection<USERS>)query.getResultList();
-    }
-    }
+public class UserListDao extends JpaDao<UuidId, User> {
+  public UserListDao() {
+    super(User.class);
+  }
+
+  @SuppressWarnings("unchecked")
+  public Collection<User> findByEmail(String email) {
+    Query query = entityManager.createQuery("select u from User u where u.email = :email");
+    query.setParameter("email", email);
+    return (Collection<User>) query.getResultList();
+  }
+
+  public Collection<User> findByName(String name) {
+    Query query = entityManager.createQuery("select u from User u where u.name = :name");
+    query.setParameter("name", name);
+    return (Collection<User>) query.getResultList();
+  }
+}
 

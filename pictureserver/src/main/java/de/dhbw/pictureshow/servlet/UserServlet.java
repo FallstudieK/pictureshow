@@ -29,10 +29,14 @@ import java.util.Collection;
 public class UserServlet extends HttpServlet {
   private static final Logger log = LoggerFactory.getLogger(UserServlet.class);
 
-  @Inject UserDao userDao;
-    @Inject FolderDao folderDao;
-    @Inject UserListDao userlistDao;
-  @Inject Transaction transaction;
+  @Inject
+  UserDao userDao;
+  @Inject
+  FolderDao folderDao;
+  @Inject
+  UserListDao userlistDao;
+  @Inject
+  Transaction transaction;
 
 
   @Override
@@ -46,17 +50,17 @@ public class UserServlet extends HttpServlet {
     user.setName("User " + users.size());
     userDao.persist(user);
 
-      Collection<USERS> userlist = userlistDao.list();
+    Collection<User> userlist = userlistDao.list();
 
-      USERS user2 = new USERS();
-      user2.setName("User " + userlist.size());
-      userlistDao.persist(user2);
+    User user2 = new User();
+    user2.setName("User " + userlist.size());
+    userlistDao.persist(user2);
 
 
-     Collection<Folder> folders = folderDao.list();
-     Folder folder = new Folder();
-     folder.setFname("Testname");
-     folderDao.persist(folder);
+    Collection<Folder> folders = folderDao.list();
+    Folder folder = new Folder();
+    folder.setFname("Testname");
+    folderDao.persist(folder);
 
     transaction.commit();
 
@@ -73,7 +77,7 @@ public class UserServlet extends HttpServlet {
       out.println("<body  bgcolor=\"#ffffff\">"
           + "<h2>Known users:</h2>");
 
-      for(User u: users) {
+      for (User u : users) {
         out.println(u + "<br/>");
       }
 

@@ -13,75 +13,75 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity // also add to persistence.xml !!
 @XmlRootElement // needed for REST JSON marshalling
 
-public class PICTURE extends PersistentObject{
+public class PICTURE extends PersistentObject {
 
-    private String title;
+  private String title;
 
-    public String getUsername() {
-        return username;
-    }
+  public String getUsername() {
+    return username;
+  }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+  public void setUsername(String username) {
+    this.username = username;
+  }
 
-    private String username;
-    private String file;
-    @Lob
-    private byte[] picture;
+  private String username;
+  private String file;
+  @Lob
+  private byte[] picture;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private USERS user;
-    @ManyToOne
-    @JoinColumn(name="folder_id")
-    private Folder folder;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private USERS user;
+  @ManyToOne
+  @JoinColumn(name = "folder_id")
+  private Folder folder;
 
-    public Folder getFolder() {
-        return folder;
-    }
+  public Folder getFolder() {
+    return folder;
+  }
 
-    public void setFolder(Folder folder) {
-        this.folder = folder;
-    }
+  public void setFolder(Folder folder) {
+    this.folder = folder;
+  }
 
-    public USERS getUser() {
-        return user;
-    }
+  public USERS getUser() {
+    return user;
+  }
 
-    public void setUser(USERS user) {
-        this.user = user;
-    }
-
-
-    public String getTitle() {
-        return title;
-    }
-
-    public byte[] getPicture() {
-        return picture;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setPicture(byte[] picture) {
-        this.picture = picture;
-    }
-
-    public String getFile() {
-        return file;
-    }
-
-    public void setFile(String file) {
-        this.file = file;
-    }
+  public void setUser(USERS user) {
+    this.user = user;
+  }
 
 
-    @Override
-    public String toString() {
-        return "Picture  " +
-               title ;
-    }
+  public String getTitle() {
+    return title;
+  }
+
+  public byte[] getPicture() {
+    return picture;
+  }
+
+  public void setTitle(String title) {
+    this.title = title;
+  }
+
+  public void setPicture(byte[] picture) {
+    this.picture = picture;
+  }
+
+  public String getFile() {
+    return file;
+  }
+
+  public void setFile(String file) {
+    this.file = file;
+  }
+
+
+  @Override
+  public String toString() {
+    return "Picture  " +
+        title;
+  }
 }

@@ -7,7 +7,10 @@
     <class>de.dhbw.pictureshow.domain.User</class>
     <class>de.dhbw.pictureshow.domain.PersistentObject</class>
     <class>de.dhbw.pictureshow.domain.UuidId</class>
-    <exclude-unlisted-classes>true</exclude-unlisted-classes>
+      <class>de.dhbw.pictureshow.domain.Folder</class>
+
+      <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
     <properties>
       <property name="hibernate.connection.url" value="jdbc:h2:mem:unit-testing-jpa"/>
       <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
