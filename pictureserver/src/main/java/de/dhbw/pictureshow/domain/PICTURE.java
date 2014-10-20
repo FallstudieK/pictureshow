@@ -10,7 +10,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * Created by koeppent on 23.09.2014.
  */
 
-@Entity // also add to persistence.xml !!
+//@Entity // also add to persistence.xml !!
 @XmlRootElement // needed for REST JSON marshalling
 
 public class PICTURE extends PersistentObject {
@@ -27,12 +27,20 @@ public class PICTURE extends PersistentObject {
 
   private String username;
   private String file;
-  @Lob
-  private byte[] picture;
+  //@Lob
+  //private byte[] picture;
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 
   @ManyToOne
   @JoinColumn(name = "user_id")
-  private USERS user;
+  private User user;
   @ManyToOne
   @JoinColumn(name = "folder_id")
   private Folder folder;
@@ -45,30 +53,17 @@ public class PICTURE extends PersistentObject {
     this.folder = folder;
   }
 
-  public USERS getUser() {
-    return user;
-  }
-
-  public void setUser(USERS user) {
-    this.user = user;
-  }
-
-
-  public String getTitle() {
+   public String getTitle() {
     return title;
   }
 
-  public byte[] getPicture() {
-    return picture;
-  }
+ //public byte[] getPicture() {return picture;  }
 
   public void setTitle(String title) {
     this.title = title;
   }
 
-  public void setPicture(byte[] picture) {
-    this.picture = picture;
-  }
+  //public void setPicture(byte[] picture) {this.picture = picture;}
 
   public String getFile() {
     return file;
