@@ -41,11 +41,10 @@ alert("You are not logged in");
       <p style="color:#ffd700;">Erinnerungen f�rs Leben</p>
     </div>
     <ul id="topnav">
-      <li><a href="bildergalerie.html" style="color:#ffd700;">Bildergalerie</a>
+      <li><a href="bildergalerie.jsp" style="color:#ffd700;">Bildergalerie</a>
         <ul>
-          <li><a href="ordner1.html">Ordner 1</a></li>
-          <li><a href="ordner2.html">Ordner 2</a></li>
-          <li><a href="ordner3.html">Ordner 3</a></li>
+          <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
+          <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
         </ul>
       </li>
       <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
