@@ -1,6 +1,5 @@
 package de.dhbw.pictureshow.database.dao;
 
-import de.dhbw.pictureshow.domain.USERS;
 import de.dhbw.pictureshow.domain.User;
 import de.dhbw.pictureshow.domain.UuidId;
 

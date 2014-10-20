@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import de.dhbw.pictureshow.database.Transaction;
-import de.dhbw.pictureshow.database.dao.PictureDao;
+import de.dhbw.pictureshow.database.dao.PicturesDao;
 import de.dhbw.pictureshow.database.dao.UserListDao;
-import de.dhbw.pictureshow.domain.USERS;
+import de.dhbw.pictureshow.domain.User;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
@@ -36,7 +36,7 @@ public class FileUploadServlet extends HttpServlet {
     @Inject
     Transaction transaction;
     @Inject
-    PictureDao pictureDao;
+    PicturesDao picturesDao;
     private static final long serialVersionUID = 1L;
 
     // location to store file uploaded
@@ -57,7 +57,7 @@ public class FileUploadServlet extends HttpServlet {
 
         HttpSession session = request.getSession(true); //des user ist jetzt die Session zugeordnet worden
         String email = (String) session.getAttribute("email");
-        USERS loggedin = null;
+        User loggedin = null;
       //  Collection<USERS> userlist= UserListDao.findByEmail("email");
       //  loggedin =userlist.iterator().next();
         if (!ServletFileUpload.isMultipartContent(request)) {

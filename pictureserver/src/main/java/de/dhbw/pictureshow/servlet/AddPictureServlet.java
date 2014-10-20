@@ -1,10 +1,8 @@
 package de.dhbw.pictureshow.servlet;
 
 import de.dhbw.pictureshow.database.Transaction;
-import de.dhbw.pictureshow.database.dao.PictureDao;
-import de.dhbw.pictureshow.database.dao.UserDao;
-import de.dhbw.pictureshow.domain.PICTURE;
-import de.dhbw.pictureshow.domain.User;
+import de.dhbw.pictureshow.database.dao.PicturesDao;
+import de.dhbw.pictureshow.domain.Pictures;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -20,6 +18,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 
+
 /**
  *
  */
@@ -28,7 +27,7 @@ public class AddPictureServlet extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(UserServlet.class);
 
     @Inject
-    PictureDao pictureDao;
+    PicturesDao picturesDao;
     @Inject Transaction transaction;
 
 
@@ -39,13 +38,12 @@ public class AddPictureServlet extends HttpServlet {
         String userName = request.getParameter("userName");
         String fileName=request.getParameter("fileName");
         transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
-        Collection<PICTURE> pictures = pictureDao.list();
+        Collection<Pictures> pictures = picturesDao.list();
 
-        PICTURE picture = new PICTURE();
+        Pictures picture = new Pictures();
         picture.setTitle("BILD " + Math.random());
-        picture.setUsername(userName);
         picture.setFile(fileName);
-        pictureDao.persist(picture);
+        picturesDao.persist(picture);
         transaction.commit();
 
         pictures = new ArrayList<>(pictures); // cloning the read-only list so that we can add something

@@ -7,7 +7,6 @@ import de.dhbw.pictureshow.database.dao.UserDao;
 import de.dhbw.pictureshow.database.dao.UserListDao;
 import de.dhbw.pictureshow.domain.Folder;
 import de.dhbw.pictureshow.domain.Pictures;
-import de.dhbw.pictureshow.domain.USERS;
 import de.dhbw.pictureshow.domain.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
