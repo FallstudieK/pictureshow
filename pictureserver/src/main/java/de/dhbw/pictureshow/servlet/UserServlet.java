@@ -2,9 +2,11 @@ package de.dhbw.pictureshow.servlet;
 
 import de.dhbw.pictureshow.database.Transaction;
 import de.dhbw.pictureshow.database.dao.FolderDao;
+import de.dhbw.pictureshow.database.dao.PicturesDao;
 import de.dhbw.pictureshow.database.dao.UserDao;
 import de.dhbw.pictureshow.database.dao.UserListDao;
 import de.dhbw.pictureshow.domain.Folder;
+import de.dhbw.pictureshow.domain.Pictures;
 import de.dhbw.pictureshow.domain.USERS;
 import de.dhbw.pictureshow.domain.User;
 import org.slf4j.Logger;
@@ -36,6 +38,8 @@ public class UserServlet extends HttpServlet {
   @Inject
   UserListDao userlistDao;
   @Inject
+  PicturesDao picturesDao;
+  @Inject
   Transaction transaction;
 
 
@@ -49,6 +53,12 @@ public class UserServlet extends HttpServlet {
     User user = new User();
     user.setName("User " + users.size());
     userDao.persist(user);
+
+    Collection<Pictures> picturelist = picturesDao.list();
+
+    Pictures picture1 = new Pictures();
+    picture1.setTitle("Picture " + picturelist.size());
+    picturesDao.persist(picture1);
 
     Collection<User> userlist = userlistDao.list();
 
