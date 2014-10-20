@@ -48,12 +48,14 @@ public class RegisterServlet extends HttpServlet {
             String email = request.getParameter("email"); //hier wird HTML von Java aufgefangen
             transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
 
-            Collection<User> userlist = userDao.findByName(userName);
+          Collection<User> userlist = userDao.findByName(userName);
+          log.debug(userlist.toString());
             User loggedin = null;
-            loggedin = userlist.iterator().next();
 
 
-            User user = new User();
+          if(userlist.isEmpty()){
+
+          User user = new User();
             user.setName(userName);
             user.setEmail(email);
             user.setPassword(password);
@@ -65,12 +67,18 @@ public class RegisterServlet extends HttpServlet {
 
             HttpSession session = request.getSession(); //des user ist jetzt die Session zugeordnet worden
             session.setAttribute ("user", userName);
-            session.setAttribute("email", loggedin.getEmail());
+            session.setAttribute("email", user.getEmail());
             log.debug("Session Successful");
             response.sendRedirect(url);
 
 
-        } finally {
+        }else{
+
+            loggedin = userlist.iterator().next();
+            String url = "http://localhost:8087/pictureserver/Login.html";
+            response.sendRedirect(url);
+            }}
+        finally {
             if (out != null) {
                 out.close();
             }
