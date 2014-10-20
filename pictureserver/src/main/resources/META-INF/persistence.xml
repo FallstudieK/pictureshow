@@ -11,6 +11,7 @@
     <class>de.dhbw.pictureshow.domain.Folder</class>
     <class>de.dhbw.pictureshow.domain.UuidId</class>
     <class>de.dhbw.pictureshow.domain.PICTURE</class>
+    <class>de.dhbw.pictureshow.domain.Pictures</class>
     <class>de.dhbw.pictureshow.domain.PersistentObject</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
