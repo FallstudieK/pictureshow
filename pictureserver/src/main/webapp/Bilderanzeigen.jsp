@@ -72,11 +72,9 @@ alert("You are not logged in");
     <ul id="topnav">
       <li><a href="bildergalerie.jsp" style="color:#ffd700;">Bildergalerie</a>
         <ul>
-        <li><a href="localhost:8087/pictureserver/Bilderanzeigen" style="color:#ffd700;">Bilder anzeigen</a></li>
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
         </ul>
-
       </li>
       <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
       <li class="active"><a href="startseite.jsp" style="color:#ffd700;">Startseite</a></li>
@@ -111,6 +109,43 @@ alert("You are not logged in");
 <div class="wrapper col4">
   <div id="services">
     <ul>
+    <%
+    @Inject FolderDao folderDao;
+
+    Collection<Folder> folderlist = folderDao.findByName(userName);%>
+
+                        <table>
+                            <%
+                              for(i=0;i<BilderArray.length(); i++){
+                            %>
+                        <tr> <td> <a href="#"><strong>I-mag-Imago</strong><img width="100%" src= <%= request.getParameter(BilderArray[i])%> style="position: width="100%";width: 234px; height:210px;" alt="" /></a> </td> </tr>
+                        <% }%>
+                        </table>
+<!--
+<%@ page import = "java.sql.*" isThreadSafe="false" %>
+<%
+  String driver = "org.h2.Driver";
+  String url = "jdbc:h2://localhost:8087/pictureserver/picturedb";
+  String user   = "sa";
+  String password   = "";
+  String relation = "TestTabelle";
+  String sqlst   = "";
+
+  session.getAttribute("user", userName);
+
+  if( request.getParameterNames().hasMoreElements() == true )
+  {
+
+    if( null != relation && 0 <  relation.length() &&
+       (null == sqlst   || 0 == sqlst.length())  )
+      sqlst = "SELECT file FROM Folder where username= " + userName;
+  }
+%>
+-->
+
+
+
+
       <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
       <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
       <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
