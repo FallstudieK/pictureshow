@@ -17,10 +17,14 @@ import javax.servlet.http.HttpSession;
 import de.dhbw.pictureshow.database.Transaction;
 import de.dhbw.pictureshow.database.dao.PicturesDao;
 import de.dhbw.pictureshow.database.dao.UserListDao;
+import de.dhbw.pictureshow.domain.Folder;
+import de.dhbw.pictureshow.domain.Pictures;
 import de.dhbw.pictureshow.domain.User;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -32,6 +36,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet(name="Upload", urlPatterns ={"/uploadFile"})
 
 public class FileUploadServlet extends HttpServlet {
+  private static final Logger log = LoggerFactory.getLogger(RegisterServlet.class);
     @Inject UserListDao userlistDao;
     @Inject
     Transaction transaction;
@@ -40,7 +45,7 @@ public class FileUploadServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     // location to store file uploaded
-  private static final String UPLOAD_DIRECTORY = "/picture";
+  private static final String UPLOAD_DIRECTORY = "upload";
 
     // upload settings
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
@@ -56,8 +61,8 @@ public class FileUploadServlet extends HttpServlet {
         // checks if the request actually contains upload file
 
         HttpSession session = request.getSession(true); //des user ist jetzt die Session zugeordnet worden
-        String email = (String) session.getAttribute("email");
-        User loggedin = null;
+       String username = (String) session.getAttribute("user");
+      //  User loggedin = null;
       //  Collection<USERS> userlist= UserListDao.findByEmail("email");
       //  loggedin =userlist.iterator().next();
         if (!ServletFileUpload.isMultipartContent(request)) {
@@ -73,8 +78,10 @@ public class FileUploadServlet extends HttpServlet {
         // sets memory threshold - beyond which files are stored in disk
         factory.setSizeThreshold(MEMORY_THRESHOLD);
         // sets temporary location to store files
-        factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
-
+       // factory.setRepository(new File(System.getProperty("java.io.tmpdir")));
+      File file2 = new File("upload");        //not temporary file
+      file2.createNewFile();
+      log.debug(file2.toString());
         ServletFileUpload upload = new ServletFileUpload(factory);
 
         // sets maximum size of upload file
@@ -85,8 +92,10 @@ public class FileUploadServlet extends HttpServlet {
 
         // constructs the directory path to store upload file
         // this path is relative to application's directory
-        String uploadPath = getServletContext().getRealPath("")
-                + File.separator + UPLOAD_DIRECTORY;
+     //   String uploadPath = getServletContext().getRealPath("")
+            //    + File.separator + file2;//UPLOAD_DIRECTORY; instead of file 2 for temp path
+      String uploadPath = "C:\\Users\\koeppent\\Desktop\\Fallstudie\\PictureShow\\pictureserver\\uploadbilder";
+      log.debug(uploadPath.toString());
 
         // creates the directory if it does not exist
         File uploadDir = new File(uploadPath);
@@ -98,7 +107,7 @@ public class FileUploadServlet extends HttpServlet {
             // parses the request's content to extract file data
             @SuppressWarnings("unchecked")
             List<FileItem> formItems = upload.parseRequest(request);
-
+            log.debug(formItems.toString());
             if (formItems != null && formItems.size() > 0) {
                 // iterates over form's fields
                 for (FileItem item : formItems) {
@@ -107,6 +116,16 @@ public class FileUploadServlet extends HttpServlet {
                         String fileName = new File(item.getName()).getName();
                         String filePath = uploadPath + File.separator + fileName;
                         File storeFile = new File(filePath);
+
+                      transaction.begin();
+                      Pictures picture1 = new Pictures();
+                      picture1.setTitle(filePath);
+                      picture1.setUsername(username);
+                      picture1.setFoldername("Standard");
+                      picturesDao.persist(picture1);
+
+                      transaction.commit();
+
 
                         // saves the file on disk
                         item.write(storeFile);
