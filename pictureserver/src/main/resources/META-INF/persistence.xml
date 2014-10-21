@@ -8,17 +8,14 @@
     <jta-data-source>java:jboss/datasources/pictureDb</jta-data-source>
 
     <class>de.dhbw.pictureshow.domain.User</class>
-      <class>de.dhbw.pictureshow.domain.PICTURE</class>
-      <class>de.dhbw.pictureshow.domain.USERS</class>
+    <class>de.dhbw.pictureshow.domain.Folder</class>
     <class>de.dhbw.pictureshow.domain.UuidId</class>
+    <class>de.dhbw.pictureshow.domain.Pictures</class>
     <class>de.dhbw.pictureshow.domain.PersistentObject</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
 
     <properties>
       <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)"/>
-      <property name="openjpa.ConnectionFactoryProperties" value="PrintParameters=true"/>
-      <property name="openjpa.Log" value="DefaultLevel=WARN, Tool=INFO, SQL =TRACE"/>
-
     </properties>
 
   </persistence-unit>

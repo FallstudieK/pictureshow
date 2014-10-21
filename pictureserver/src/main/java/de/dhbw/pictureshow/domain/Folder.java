@@ -1,48 +1,45 @@
 package de.dhbw.pictureshow.domain;
-import javax.persistence.Entity;
-import javax.xml.bind.annotation.XmlRootElement;
-import java.util.Date;
 
 /**
- *
+ * Created by koeppent on 19.10.2014.
  */
+
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
+
 @Entity // also add to persistence.xml !!
 @XmlRootElement // needed for REST JSON marshalling
 public class Folder extends PersistentObject {
-    private String fname;
-    private Date fdate;
-    private String userId;
 
-    public String getFname() {
-        return fname;
-    }
+  private String fname;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
-    public void setFname(String fname) {
-        this.fname = fname;
-    }
+  public String getFname() {
+    return fname;
+  }
 
-    public Date getFdate() {
-        return fdate;
-    }
+  public void setFname(String fname) {
+    this.fname = fname;
+  }
 
-    public void setFdate(Date fdate) {
-        this.fdate = fdate;
-    }
+  public User getUser() {
+    return user;
+  }
 
-    public String getUserId() {
-        return userId;
-    }
+  public void setUser(User user) {
+    this.user = user;
+  }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-    @Override
-    public String toString() {
-        return "User{" +
-                "folderid='" + id + '\'' +
-                ", fname='" + fname + '\'' +
-                "date='" + fdate + '\'' +
-                "userId='" + userId + '\'' +
-                '}';
-    }
+
+  @Override
+  public String toString() {
+    return "Folder{" +
+        "id='" + id + '\'' +
+        ", name='" + fname + '\'' +
+        '}';
+  }
 }

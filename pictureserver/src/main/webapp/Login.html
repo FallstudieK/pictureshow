@@ -4,7 +4,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title>I-mag-Imago | Login</title>
-    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
 </head>
 
 <body id="top">
@@ -25,6 +25,7 @@ function GetUrlValue(VarSearch){
 
 alert(GetUrlValue('msg'));
 
+
 </script>
 <div class="wrapper col1">
     <div id="topbar">
@@ -34,12 +35,13 @@ alert(GetUrlValue('msg'));
     <div id="header">
         <div id="logo">
             <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
+
             <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
         </div>
         <ul id="topnav">
             <li><a href="Register.html" style="color:#ffd700;">Registrierung</a></li>
         </ul>
-        <br class="clear" />
+        <br class="clear"/>
     </div>
 </div>
 
@@ -47,18 +49,18 @@ alert(GetUrlValue('msg'));
     <form name="input" method="POST" action="http://localhost:8087/pictureserver/login">     <!--Method="post" or "get" what is the difference? which on eto use here?
                                                                                             Target URL needs to change!!-->
 
-    <p id="textfeld">
-        Benutzer: <br><input type="text" name="user"><br>
-    </p>
+        <p id="benutzerp">
+            Benutzer: <br><input type="text" name="user"><br>
+        </p>
 
-    <p id="textfeld">
-        Passwort: <br><input type="password" name="password"><br>
-    </p>
+        <p id="passwordp">
+            Passwort: <br><input type="password" name="password"><br>
+        </p>
 
-    <p>
-        <input id="button" type="submit" value="Einloggen">
-    </p>
-</form>
+        <p>
+            <input id="button" type="submit" value="Einloggen">
+        </p>
+    </form>
 </div>
 
 </body>

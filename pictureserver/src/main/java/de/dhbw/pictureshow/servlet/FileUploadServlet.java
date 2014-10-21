@@ -3,17 +3,25 @@ package de.dhbw.pictureshow.servlet;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.List;
 
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import de.dhbw.pictureshow.database.Transaction;
+import de.dhbw.pictureshow.database.dao.PicturesDao;
+import de.dhbw.pictureshow.database.dao.UserListDao;
+import de.dhbw.pictureshow.domain.User;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
 
 /**
  * A Java servlet that handles file upload from client.
@@ -24,10 +32,15 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 @WebServlet(name="Upload", urlPatterns ={"/uploadFile"})
 
 public class FileUploadServlet extends HttpServlet {
+    @Inject UserListDao userlistDao;
+    @Inject
+    Transaction transaction;
+    @Inject
+    PicturesDao picturesDao;
     private static final long serialVersionUID = 1L;
 
     // location to store file uploaded
-    private static final String UPLOAD_DIRECTORY = "upload";
+  private static final String UPLOAD_DIRECTORY = "/picture";
 
     // upload settings
     private static final int MEMORY_THRESHOLD   = 1024 * 1024 * 3;  // 3MB
@@ -41,6 +54,12 @@ public class FileUploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
         // checks if the request actually contains upload file
+
+        HttpSession session = request.getSession(true); //des user ist jetzt die Session zugeordnet worden
+        String email = (String) session.getAttribute("email");
+        User loggedin = null;
+      //  Collection<USERS> userlist= UserListDao.findByEmail("email");
+      //  loggedin =userlist.iterator().next();
         if (!ServletFileUpload.isMultipartContent(request)) {
             // if not, we stop here
             PrintWriter writer = response.getWriter();

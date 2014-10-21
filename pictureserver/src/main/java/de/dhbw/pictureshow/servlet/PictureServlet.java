@@ -1,11 +1,8 @@
 package de.dhbw.pictureshow.servlet;
 
 import de.dhbw.pictureshow.database.Transaction;
-import de.dhbw.pictureshow.database.dao.PictureDao;
-import de.dhbw.pictureshow.database.dao.UserDao;
-import de.dhbw.pictureshow.domain.PICTURE;
-import de.dhbw.pictureshow.domain.USERS;
-import de.dhbw.pictureshow.domain.User;
+import de.dhbw.pictureshow.database.dao.PicturesDao;
+import de.dhbw.pictureshow.domain.Pictures;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -30,7 +27,7 @@ public class PictureServlet extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(UserServlet.class);
 
     @Inject
-    PictureDao pictureDao;
+    PicturesDao picturesDao;
     @Inject
     Transaction transaction;
 
@@ -39,7 +36,7 @@ public class PictureServlet extends HttpServlet {
         log.debug("PictureServlet get");
 
         transaction.begin();                        // muss begonnen werden bevor datenbank verwendet wird
-        Collection<PICTURE> pictures = pictureDao.list();
+        Collection<Pictures> pictures = picturesDao.list();
 
 
         pictures = new ArrayList<>(pictures); // cloning the read-only list so that we can add something
@@ -56,8 +53,8 @@ public class PictureServlet extends HttpServlet {
                     + "<h2>Hallo " + userName + " Deine Bilder:</h2>");
 
 
-            for (PICTURE p : pictures) {
-                String pictureOwner = p.getUsername();
+            for (Pictures p : pictures) {
+                String pictureOwner = "test";       ///test muss durch user ersetzt werden, der über uuid zum entsprechendem bild gehört
                 if (userName.equals(pictureOwner)) {
                     out.println(p + "<br/>");
                 }

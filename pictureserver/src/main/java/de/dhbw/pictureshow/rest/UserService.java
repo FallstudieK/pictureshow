@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import java.util.Collection;
+
 //
 ///**
 // *
@@ -18,7 +19,7 @@ import java.util.Collection;
 @Produces({"application/json"}) // mime type
 @Singleton
 public class UserService {
- private static final Logger log = LoggerFactory.getLogger(UserService.class);
+  private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
   @Inject
   UserDao userDao;

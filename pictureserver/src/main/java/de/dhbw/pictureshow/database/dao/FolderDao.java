@@ -8,9 +8,8 @@ import javax.persistence.Query;
 import java.util.Collection;
 
 /**
- * Created by zaiser on 13.10.2014.
+ * Created by koeppent on 19.10.2014.
  */
-
 @ApplicationScoped
 public class FolderDao extends JpaDao<UuidId,Folder> {
     public FolderDao() {
@@ -18,9 +17,9 @@ public class FolderDao extends JpaDao<UuidId,Folder> {
     }
 
     @SuppressWarnings("unchecked")
-    public Collection<Folder> findByName(String name) {
-        Query query = entityManager.createQuery("select f from Folder f where f.name = :name");
-        query.setParameter("name", name);
+    public Collection<Folder> findByName(String fname) {
+        Query query = entityManager.createQuery("select f from Folder f where f.fname = :fname");
+        query.setParameter("fname", fname);
         return (Collection<Folder>)query.getResultList();
     }
 }

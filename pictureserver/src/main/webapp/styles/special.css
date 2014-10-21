@@ -36,7 +36,7 @@ position:absolute;
 top:350px;
 left:50%;
 margin-left:-450px;
-background:url(pfeillinks.png) no-repeat;
+background:url("pfeillinks.png") no-repeat;
 display:none;
 }
 #pfeilrechts {
