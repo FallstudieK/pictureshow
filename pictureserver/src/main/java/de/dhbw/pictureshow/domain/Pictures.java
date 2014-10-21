@@ -17,6 +17,28 @@ public class Pictures extends PersistentObject  {
   private String title;
   private String beschreibung;
   private String file;
+  private String username;
+
+  public String getFoldername() {
+    return foldername;
+  }
+
+  public void setFoldername(String foldername) {
+    this.foldername = foldername;
+  }
+
+  private String foldername;
+
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+
 
   public String getTitle() {
     return title;

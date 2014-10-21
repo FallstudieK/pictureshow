@@ -42,25 +42,25 @@ alert("You are not logged in");
 </div>
 
 <div id="loginregister">
-    <form name="input" method="POST" action="http://localhost:8087/pictureserver/CreateAlbum">     <!--Method="post" or "get" what is the difference? which on eto use here? Target URL needs to change!!-->
+    <form name="input" method="Get" action="http://localhost:8087/pictureserver/CreateAlbum">     <!--Method="post" or "get" what is the difference? which on eto use here? Target URL needs to change!!-->
 
 
 <p id="titlep">
-    Titel <br><input type="text" name="title"><br>
+    Titel: <br><input type="text" name="title"><br>
 </p>
 
 <p id="beschreibungp">
     Beschreibung: <br><input type="text" name="description"><br>
-</p>
+<!-- </p>
         <form method="post" action="uploadFile" enctype="multipart/form-data">
             Select file to upload in this album:
             <input type="file" id="files" name="files[]" multiple />
             <output id="list"></output>
-            <!-- <input type="file" name="uploadFile" multiple/>-->
+            <!-- <input type="file" name="uploadFile" multiple/>
             <br/><br/>
-        </form>
+        </form> -->
 <p>
-    <input id="button" type="submit" value="Album anlegen">
+    <input id="Album" type="submit" value="Album anlegen">
 </p>
 </form>
 </div>
