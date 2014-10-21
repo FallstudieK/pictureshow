@@ -16,7 +16,7 @@
 <script type="text/javascript">
 alert("You are not logged in");
 </script>
-<!--link zu jetzt einloggen-->
+<center><u><a href="Login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
 <%} else {
 %>
 
@@ -38,7 +38,7 @@ alert("You are not logged in");
   <div id="header">
     <div id="logo">
       <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
-      <p style="color:#ffd700;">Erinnerungen f�rs Leben</p>
+      <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
     </div>
     <ul id="topnav">
       <li><a href="bildergalerie.jsp" style="color:#ffd700;">Bildergalerie</a>
@@ -48,7 +48,7 @@ alert("You are not logged in");
         </ul>
       </li>
       <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
-      <li class="active"><a href="startseite.html" style="color:#ffd700;">Startseite</a></li>
+      <li class="active"><a href="startseite.jsp" style="color:#ffd700;">Startseite</a></li>
     </ul>
     <br class="clear" />
   </div>
@@ -57,7 +57,7 @@ alert("You are not logged in");
   <div id="container">
     <div id="content">
       <h2 style="color:#ffd700;">Willkommen bei I-mag-Imago</h2>
-      <p style="color:#ffd700;">Bilder sind Quellen der Vergangenheit, die sch�ne Erinnerungen verewigen.</p>
+      <p style="color:#ffd700;">Bilder sind Quellen der Vergangenheit, die schöne Erinnerungen verewigen.</p>
       <p>Hier noch mehr Text...</p>
     </div>
     <div id="column">
