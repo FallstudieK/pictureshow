@@ -10,29 +10,29 @@
 <h1>Hello</h1>
 <div id="container"></div>
 <script type="text/javascript">
-  var counter = 0;
-  var el = $("#container");
+    var counter = 0;
+    var el = $("#container");
 
-  $.getJSON("/pictureserver/rest/api/user", function( obj ) {
+    $.getJSON("/pictureserver/rest/api/user", function( obj ) {
     // tu was mit obj
     console.log(obj);
     var usersList = obj.user;
     usersList.forEach(function(u) {
-      $("#container").append("<p>"+u.name+"</p>");
+    $("#container").append("<p>"+u.name+"</p>");
     });
-  });
-
-  $.ajax({
+    });
+</script>
+<script type="text/javascript">
+    $.ajax({
     type: "POST",
     url: "/pictureserver/rest/api/user",
     data: { name: "John" },
     success: function( data ) {
-      alert( "Data Loaded: " + data );
+    alert( "Data Loaded: " + data );
     },
     dataType: "json"
-  });
+    });
 
 </script>
-
 </body>
 </html>

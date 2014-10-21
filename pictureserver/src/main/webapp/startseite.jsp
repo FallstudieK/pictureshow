@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>I-mag-Imago | Erinnerungen f�rs Leben  </title>
+<%@ page
+language="java"
+contentType="text/html; charset=utf-8"
+pageEncoding="utf-8"
+import="java.sql.*"
+%> 
+<title>I-mag-Imago | Erinnerungen fürs Leben  </title>
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 </head>
 <body id="top">
@@ -16,7 +21,31 @@
 <script type="text/javascript">
 alert("You are not logged in");
 </script>
+<div class="wrapper col1">
+    <div id="topbar">
+    </div>
+</div>
+<div class="wrapper col2">
+<meta charset="utf-8">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
+            <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
+        </div>
+        <ul id="topnav">
+            <li><a href="Register.html" style="color:#ffd700;">Registrierung</a></li>
+        </ul>
+        <br class="clear" />
+    </div>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
 <center><u><a href="Login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
+</div>
 <%} else {
 %>
 
