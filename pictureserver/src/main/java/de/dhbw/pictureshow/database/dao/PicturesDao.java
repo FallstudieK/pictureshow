@@ -24,6 +24,13 @@ public class PicturesDao extends JpaDao<UuidId, Pictures> {
   }
 
   @SuppressWarnings("unchecked")
+  public Collection<Pictures> findByUser(String user) {
+    Query query = entityManager.createQuery("select p from Pictures p where p.username = :user");
+    query.setParameter("user", user);
+    return (Collection<Pictures>) query.getResultList();
+  }
+
+  @SuppressWarnings("unchecked")
   public Collection<Pictures> findByFolder(String folder) {
     Query query = entityManager.createQuery("select p from Pictures p where p.foldername = :foldername");
     query.setParameter("foldername", folder);
