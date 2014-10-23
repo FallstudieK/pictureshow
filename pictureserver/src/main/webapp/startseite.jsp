@@ -75,6 +75,7 @@ alert("You are not logged in");
         <li><a href="localhost:8087/pictureserver/Bilderanzeigen" style="color:#ffd700;">Bilder anzeigen</a></li>
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
+          <li><a href="ordner2.jsp">Deutschlandreise</a></li>
         </ul>
 
       </li>
@@ -89,19 +90,19 @@ alert("You are not logged in");
   <div id="container">
     <div id="content">
       <h2 style="color:#ffd700;">Willkommen bei I-mag-Imago</h2>
-      <p style="color:#ffd700;">Bilder sind Quellen der Vergangenheit, die schöne Erinnerungen verewigen.</p>
-      <p>Hier noch mehr Text...</p>
+      <p style="color:#ffd700;">Bilder sind wichtige Quellen der Vergangenheit, die wertvolle Momente verewigt und schöne Erinnerungen wieder zum Leben erwecken.</p>
+      <p>-Deshalb mag-I-Imago</p>
     </div>
     <div id="column">
       <div class="flickrbox">
         <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Minibilder</h2>
         <ul>
-          <li><a href="ordner1.html"><img src="images/Chanis_pics/DSC_0001.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="images/demo/80x80.gif" width="80" height="80" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="images/demo/80x80.gif" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="images/demo/80x80.gif" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="images/demo/80x80.gif" width="80" height="80" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="images/demo/80x80.gif" width="80" height="80" alt="" /></a></li>
+          <li><a href="ordner1.html"><img src="bilder/bild1.JPG" width="80" height="80" alt="" /></a></li>
+          <li><a href="#"><img src="bilder/bild2.JPG" width="80" height="80" alt="" /></a></li>
+          <li class="last"><a href="#"><img src="bilder/bild3.JPG" width="80" height="80" alt="" /></a></li>
+          <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
+          <li><a href="#"><img src="bilder/bild5.JPG" width="80" height="80" alt="" /></a></li>
+          <li class="last"><a href="#"><img src="bilder/bild6.JPG" width="80" height="80" alt="" /></a></li>
         </ul>
         <br class="clear" />
       </div>
@@ -113,13 +114,13 @@ alert("You are not logged in");
   <div id="services">
     <ul>
       <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
+      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="bilder/bild1.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
+      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="bilder/bild2.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
+      <li class="last"><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="bilder/bild3.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
+      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="bilder/bild4.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
       <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
-      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
-      <li class="last"><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
-      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
-      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
-      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
-      <li class="last"><a href="#"><strong>I-mag-Imago </strong><img width="100%" src="images/Chanis_pics/DSC_0001.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
+      <li><a href="#"><strong>I-mag-Imago</strong><img width="100%" src="bilder/bild6.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
+      <li class="last"><a href="#"><strong>I-mag-Imago </strong><img width="100%" src="bilder/bild5.JPG" style="position: width="100%";width: 234px; height:210px;" alt="" /></a></li>
     </ul>
     <br class="clear" />
   </div>
