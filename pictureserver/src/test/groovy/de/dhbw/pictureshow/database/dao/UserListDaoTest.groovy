@@ -1,14 +1,14 @@
-package de.dhbw.pictureshow.database.dao
+/*package de.dhbw.pictureshow.database.dao
 
-import de.dhbw.pictureshow.domain.Pictures
+
 import de.dhbw.pictureshow.domain.UuidId
 import org.h2.engine.User
 import spock.lang.Specification
-
+*/
 /**
  * Created by koeppent on 23.10.2014.
  */
-class UserListDaoTest extends Specification {
+/*class UserListDaoTest extends Specification {
 
     @Delegate // a special form of inheritance
     DbTestUtil dbTestUtil = new DbTestUtil()
@@ -79,3 +79,4 @@ class UserListDaoTest extends Specification {
         foundUser[0].id == expectedPictures.id
     }
 }
+*/
