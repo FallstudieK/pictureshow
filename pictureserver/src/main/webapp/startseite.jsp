@@ -81,6 +81,7 @@ alert("You are not logged in");
       </li>
       <li><a href="blogkommentar.html" style="color:#ffd700;">I-mag kommentieren</a></li>
       <li class="active"><a href="startseite.jsp" style="color:#ffd700;">Startseite</a></li>
+       <li class="active"><a href="logout" style="color:#ffd700;">Logout</a></li>
     </ul>
     <br class="clear" />
   </div>
