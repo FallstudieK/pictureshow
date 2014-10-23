@@ -1,25 +1,23 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>I-mag-Imago | Erinnerungen fürs Leben  </title>
-<link rel="stylesheet" href="styles/layout.css" type="text/css" />
-    <script type="text/javascript" src="javascript/fenster.js"></script>
+<%@ page
+language="java"
+contentType="text/html; charset=utf-8"
+pageEncoding="utf-8"
+import="java.sql.*"
+%> 
+    <title>I-mag-Imago | Erinnerungen fürs Leben</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles/design.css">
-    <link rel="stylesheet" type="text/css" href="styles/special.css">
     <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
 </head>
 <body id="top">
-
 <%
 
     if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 
   %>
-
+<meta charset="utf-8">
 <script type="text/javascript">
 alert("You are not logged in");
 </script>
@@ -28,7 +26,6 @@ alert("You are not logged in");
     </div>
 </div>
 <div class="wrapper col2">
-<meta charset="utf-8">
     <div id="header">
         <div id="logo">
             <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
@@ -51,9 +48,32 @@ alert("You are not logged in");
 <%} else {
 %>
 
-<title>Upload Result</title>
-</head>
-
+<div class="wrapper col1">
+    <div id="topbar">
+        <!--<div id="search">
+          <form action="#" method="post">
+            <fieldset>
+              <legend>Site Search</legend>
+              <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
+          <input type="submit" name="go" id="go" value="GO" />
+        </fieldset>
+      </form>
+    </div>-->
+    </div>
+</div>
+<div class="wrapper col1">
+  <!--<div id="topbar">
+    <div id="search">
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Site Search</legend>
+          <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
+          <input type="submit" name="go" id="go" value="GO" />
+        </fieldset>
+      </form>
+    </div>
+  </div>-->
+</div>
 <div class="wrapper col2">
   <div id="header">
     <div id="logo">
@@ -77,14 +97,28 @@ alert("You are not logged in");
     <br class="clear" />
   </div>
 </div>
-    <center>
-    <a style="color:#ffd700;">
-        <h2>${message}</h2></a>
-    </center>
-</body>
-</html>
+<div class="wrapper col5">
+    <div id="container">
 
 
+        <style>
+            .thumb {
+            height: 75px;
+            border: 1px solid #000;
+            margin: 10px 5px 0 0;
+            }
+        </style>
+        </form>
+        <center>
+            <form method="post" action="uploadFile" enctype="multipart/form-data">
+                Select file to upload:
+                <input type="file" id="files" name="files[]" multiple/>
+                <output id="list"></output>
+                <br/><br/>
+                <input type="submit" value="Upload"/>
+            </form>
+        </center>
+    </div>
 <%}
 %>
 </body>

@@ -1,19 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-
-<title>I-mag-Imago | Erinnerungen fürs Leben  </title>
-<link rel="stylesheet" href="styles/layout.css" type="text/css" />
-    <script type="text/javascript" src="javascript/fenster.js"></script>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles/design.css">
-    <link rel="stylesheet" type="text/css" href="styles/special.css">
-    <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
+<head lang="de">
+<%@ page
+language="java"
+contentType="text/html; charset=utf-8"
+pageEncoding="utf-8"
+import="java.sql.*"
+%> 
+    <meta charset="UTF-8">
+    <title>I-mag-Imago | Neues Album</title>
+    <link rel="stylesheet" href="styles/layout.css" type="text/css" />
 </head>
-<body id="top">
-
+<body>
 <%
 
     if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
@@ -28,7 +26,6 @@ alert("You are not logged in");
     </div>
 </div>
 <div class="wrapper col2">
-<meta charset="utf-8">
     <div id="header">
         <div id="logo">
             <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
@@ -50,10 +47,19 @@ alert("You are not logged in");
 </div>
 <%} else {
 %>
-
-<title>Upload Result</title>
-</head>
-
+<div class="wrapper col1">
+  <!--<div id="topbar">
+    <div id="search">
+      <form action="#" method="post">
+        <fieldset>
+          <legend>Site Search</legend>
+          <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
+          <input type="submit" name="go" id="go" value="GO" />
+        </fieldset>
+      </form>
+    </div>
+  </div>-->
+</div>
 <div class="wrapper col2">
   <div id="header">
     <div id="logo">
@@ -77,14 +83,30 @@ alert("You are not logged in");
     <br class="clear" />
   </div>
 </div>
-    <center>
-    <a style="color:#ffd700;">
-        <h2>${message}</h2></a>
-    </center>
-</body>
-</html>
+
+<div id="loginregister">
+    <form name="input" method="Get" action="http://localhost:8087/pictureserver/CreateAlbum">     <!--Method="post" or "get" what is the difference? which on eto use here? Target URL needs to change!!-->
 
 
+<p id="titlep">
+    Titel: <br><input type="text" name="title"><br>
+</p>
+
+<p id="beschreibungp">
+    Beschreibung: <br><input type="text" name="description"><br>
+<!-- </p>
+        <form method="post" action="uploadFile" enctype="multipart/form-data">
+            Select file to upload in this album:
+            <input type="file" id="files" name="files[]" multiple />
+            <output id="list"></output>
+            <!-- <input type="file" name="uploadFile" multiple/>
+            <br/><br/>
+        </form> -->
+<p>
+    <input id="Album" type="submit" value="Album anlegen">
+</p>
+</form>
+</div>
 <%}
 %>
 </body>

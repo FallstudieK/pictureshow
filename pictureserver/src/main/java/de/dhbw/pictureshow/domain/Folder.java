@@ -14,6 +14,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Folder extends PersistentObject {
 
   private String fname;
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
+  private String username;
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;

@@ -12,11 +12,32 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity // also add to persistence.xml !!
 @XmlRootElement // needed for REST JSON marshalling
 
-public class Pictures extends PersistentObject  {
+public class Pictures extends PersistentObject {
 
   private String title;
   private String beschreibung;
   private String file;
+  private String username;
+
+  public String getFoldername() {
+    return foldername;
+  }
+
+  public void setFoldername(String foldername) {
+    this.foldername = foldername;
+  }
+
+  private String foldername;
+
+
+  public String getUsername() {
+    return username;
+  }
+
+  public void setUsername(String username) {
+    this.username = username;
+  }
+
 
   public String getTitle() {
     return title;
@@ -66,4 +87,12 @@ public class Pictures extends PersistentObject  {
   private Folder folder;
 
 
+  @Override
+  public String toString() {
+    return "User{" +
+        "id='" + file + '\'' +
+        ", name='" + title + '\'' +
+        '}';
+
+  }
 }
