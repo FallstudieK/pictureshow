@@ -115,6 +115,12 @@ alert("You are not logged in");
                 <input type="file" id="files" name="files[]" multiple/>
                 <output id="list"></output>
                 <br/><br/>
+
+                <p id="titlep">
+                    Titel: <br><input type="text" name="title"><br>
+                </p>
+
+                <br>
                 <input type="submit" value="Upload"/>
             </form>
         </center>

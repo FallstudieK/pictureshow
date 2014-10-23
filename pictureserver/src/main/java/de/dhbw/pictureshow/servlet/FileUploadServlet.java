@@ -13,8 +13,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.*;
 
 import de.dhbw.pictureshow.database.Transaction;
+import de.dhbw.pictureshow.database.dao.FolderDao;
 import de.dhbw.pictureshow.database.dao.PicturesDao;
 import de.dhbw.pictureshow.database.dao.UserListDao;
 import de.dhbw.pictureshow.domain.Folder;
@@ -40,6 +42,8 @@ public class FileUploadServlet extends HttpServlet {
   private static final Logger log = LoggerFactory.getLogger(RegisterServlet.class);
   @Inject
   UserListDao userlistDao;
+   @Inject
+    FolderDao folderDao;
   @Inject
   Transaction transaction;
   @Inject
@@ -61,7 +65,7 @@ public class FileUploadServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request,
                         HttpServletResponse response) throws ServletException, IOException {
     // checks if the request actually contains upload file
-
+      String title = request.getParameter("title");
     HttpSession session = request.getSession(true); //des user ist jetzt die Session zugeordnet worden
     String username = (String) session.getAttribute("user");
    // UuidId userId = (UuidId) session.getAttribute("user_id");
@@ -120,12 +124,29 @@ public class FileUploadServlet extends HttpServlet {
             String filePath = uploadPath + File.separator + fileName;
             File storeFile = new File(filePath);
 
-            transaction.begin();
+             /* Collection<Folder> Folderlist = folderDao.findByName(title);
+              if (! Folderlist.isEmpty()) {
+                  JOptionPane.showMessageDialog(null, "Das Album gibt es bereits!");
+                  String url = "http://localhost:8087/pictureserver/CreateAlbum";
+                  response.sendRedirect(url);
+              }*/
+              transaction.begin();
+              Folder folder1 = new Folder();
+              folder1.setFname(title);
+              folder1.setUsername(username);
+
+              //  log.debug(folder1.getUserId()); // warum ist die id leer?
+              folderDao.persist(folder1);
+
             Pictures picture1 = new Pictures();
             picture1.setTitle(filePath);
             picture1.setUsername(username);
            // picture1.setUser(userId);
-            picture1.setFoldername("Standard");
+           /*   if (title.isEmpty()){
+            picture1.setFoldername("Standard");}
+              else{*/
+                  picture1.setFoldername(title);
+            /*  }*/
             picturesDao.persist(picture1);
 
             transaction.commit();
