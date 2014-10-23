@@ -118,7 +118,7 @@ alert("You are not logged in");
 <div class="wrapper col4">
     <div id="services">
         <ul>
-            <li><a href="#"><strong>Die Welt von oben</strong><img onclick="oeffnefenster('1')" width="100%"
+            <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"
@@ -127,7 +127,7 @@ alert("You are not logged in");
             <li><a href="#"><strong>Köln</strong><img onclick="oeffnefenster('3')" width="100%"
                                                              src="bilder/bild3.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
-            <li class="last"><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('4')" width="100%"
+            <li class="last"><a href="#"><strong>Die Welt von oben</strong><img onclick="oeffnefenster('4')" width="100%"
                                                                           src="bilder/bild4.JPG"
                                                                           style="position: width="100%";width: 234px;
                 height:210px;" alt="" /></a></li>
@@ -155,10 +155,10 @@ alert("You are not logged in");
 <div onclick="closeall()" id="xbutton"></div>
 <div onclick="back()" id="pfeillinks"></div>
 <div onclick="next()" id="pfeilrechts"></div>
-<div id="fst1" class="bildzoom"><img src="bilder/bild1.JPG" height="500"/></div>
-<div id="fst2" class="bildzoom"><img src="bilder/bild2.JPG" width="800"/></div>
-<div id="fst3" class="bildzoom"><img src="bilder/bild3.JPG" width="800"/></div>
-<div id="fst4" class="bildzoom"><img src="bilder/bild4.JPG" height="500"/></div>
+<div id="fst1" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild1.JPG" height="500"/><p><b>Über den Wolken</p></div>
+<div id="fst2" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild2.JPG" width="800"/><p><b>Schokimuseum</p></div>
+<div id="fst3" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild3.JPG" width="800"/><p><b>Köln</p></div>
+<div id="fst4" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild4.JPG" height="500"/><p><b>Die Welt von oben</p></div>
 
 <%}
 %>
