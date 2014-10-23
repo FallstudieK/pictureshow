@@ -54,16 +54,16 @@ import="java.sql.*"
 <div class="wrapper col4">
     <div id="services">
         <ul>
-            <li><a href="#"><strong>I-mag-Imago</strong><img onclick="oeffnefenster('1')" width="100%"
+            <li><a href="#"><strong>Die Welt von oben</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
-            <li><a href="#"><strong>I-mag-Imago</strong><img onclick="oeffnefenster('2')" width="100%"
+            <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"
                                                              src="bilder/bild2.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
-            <li><a href="#"><strong>I-mag-Imago</strong><img onclick="oeffnefenster('3')" width="100%"
+            <li><a href="#"><strong>Köln</strong><img onclick="oeffnefenster('3')" width="100%"
                                                              src="bilder/bild3.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
-            <li class="last"><a href="#"><strong>I-mag-Imago</strong><img onclick="oeffnefenster('4')" width="100%"
+            <li class="last"><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('4')" width="100%"
                                                                           src="bilder/bild4.JPG"
                                                                           style="position: width="100%";width: 234px;
                 height:210px;" alt="" /></a></li>
