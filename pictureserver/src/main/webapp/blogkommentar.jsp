@@ -17,7 +17,7 @@ import="java.sql.*"
     if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
 
   %>
-<meta charset="utf-8">
+
 <script type="text/javascript">
 alert("You are not logged in");
 </script>
@@ -26,6 +26,7 @@ alert("You are not logged in");
     </div>
 </div>
 <div class="wrapper col2">
+<meta charset="utf-8">
     <div id="header">
         <div id="logo">
             <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
@@ -48,19 +49,7 @@ alert("You are not logged in");
 <%} else {
 %>
 
-<div class="wrapper col1">
-    <div id="topbar">
-        <!--<div id="search">
-          <form action="#" method="post">
-            <fieldset>
-              <legend>Site Search</legend>
-              <input type="text" value="Search the site&hellip;"  onfocus="this.value=(this.value=='Search the site&hellip;')? '' : this.value ;" />
-          <input type="submit" name="go" id="go" value="GO" />
-        </fieldset>
-      </form>
-    </div>-->
-    </div>
-</div>
+
 <div class="wrapper col1">
   <!--<div id="topbar">
     <div id="search">
@@ -99,26 +88,59 @@ alert("You are not logged in");
 </div>
 <div class="wrapper col5">
     <div id="container">
+        <div id="content">
+            <h2 style="color:#ffd700;">Write A Comment</h2>
 
-
-        <style>
-            .thumb {
-            height: 75px;
-            border: 1px solid #000;
-            margin: 10px 5px 0 0;
-            }
-        </style>
-        </form>
-        <center>
-            <form method="post" action="uploadFile" enctype="multipart/form-data">
-                Select file to upload:
-                <input type="file" id="files" name="files[]" multiple/>
-                <output id="list"></output>
-                <br/><br/>
-                <input type="submit" value="Upload"/>
-            </form>
-        </center>
+            <div id="respond">
+                <form action="#" method="post">
+                    <p>
+                        <input type="text" name="name" id="name" value="" size="22"/>
+                        <label for="name">
+                            <small>Name (required)</small>
+                        </label>
+                    </p>
+                    <!--
+                    <p>
+                      <input type="text" name="email" id="email" value="" size="22" />
+                      <label for="email"><small>Mail (required)</small></label>
+                    </p>
+                    -->
+                    <p>
+                        <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
+                        <label for="comment" style="display:none;">
+                            <small>Comment (required)</small>
+                        </label>
+                    </p>
+                    <p>
+                        <input name="submit" type="submit" id="submit" value="Submit Form"/>
+                        &nbsp;
+                        <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form"/>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div id="column">
+            <div class="subnav">
+                <h2>Benutzer Navigation</h2>
+                <ul>
+                    <li><a href="bildergalerie.jsp">Bildergalerie</a>
+                        <ul>
+                            <li><a href="ordner2.jsp">Deutschlandreise</a></li>
+                            <li><a href="ordner2.html">Ordner 2</a></li>
+                            <li><a href="ordner3.html">Ordner 2</a></li>
+                            <!-- <ul>
+                               <li><a href="#">Unterordner 1</a></li>
+                               <li><a href="#">Unterordner 2</a></li>
+                             </ul>
+                           </li>-->
+                        </ul>
+                    </li>
+                    <li><a href="startseite.jsp">Startseite</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
+</div>
 <%}
 %>
 </body>
