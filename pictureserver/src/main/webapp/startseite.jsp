@@ -125,10 +125,10 @@ alert("You are not logged in");
                                                              src="bilder/bild2.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>Köln</strong><img onclick="oeffnefenster('3')" width="100%"
-                                                             src="bilder/bild3.JPG" style="position: width="100%";width:
+                                                             src="bilder/bild5.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
-            <li class="last"><a href="#"><strong>Die Welt von oben</strong><img onclick="oeffnefenster('4')" width="100%"
-                                                                          src="bilder/bild4.JPG"
+            <li class="last"><a href="#"><strong>Haribo</strong><img onclick="oeffnefenster('4')" width="100%"
+                                                                          src="bilder/bild6.JPG"
                                                                           style="position: width="100%";width: 234px;
                 height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>I-mag-Imago</strong><img width="100%"
@@ -157,8 +157,8 @@ alert("You are not logged in");
 <div onclick="next()" id="pfeilrechts"></div>
 <div id="fst1" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild1.JPG" height="500"/><p><b>Über den Wolken</p></div>
 <div id="fst2" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild2.JPG" width="800"/><p><b>Schokimuseum</p></div>
-<div id="fst3" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild3.JPG" width="800"/><p><b>Köln</p></div>
-<div id="fst4" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild4.JPG" height="500"/><p><b>Die Welt von oben</p></div>
+<div id="fst3" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild5.JPG" width="800"/><p><b>Köln</p></div>
+<div id="fst4" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild6.JPG" height="500"/><p><b>Haribo</p></div>
 
 <%}
 %>

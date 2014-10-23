@@ -15,6 +15,41 @@ import="java.sql.*"
     <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
 </head>
 <body id="top">
+<%
+
+    if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
+
+  %>
+
+<script type="text/javascript">
+alert("You are not logged in");
+</script>
+<div class="wrapper col1">
+    <div id="topbar">
+    </div>
+</div>
+<div class="wrapper col2">
+    <div id="header">
+        <div id="logo">
+            <h1><a href="#" style="color:#ffd700;">I-mag-Imago </a></h1>
+            <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
+        </div>
+        <ul id="topnav">
+            <li><a href="Register.html" style="color:#ffd700;">Registrierung</a></li>
+        </ul>
+        <br class="clear" />
+    </div>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<center><u><a href="Login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
+</div>
+<%} else {
+%>
 <div class="wrapper col1">
         <!--<div id="topbar">
           <div id="search">
@@ -95,5 +130,7 @@ import="java.sql.*"
 <div id="fst2" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild2.JPG" width="800"/><p><b>Schokimuseum</p></div>
 <div id="fst3" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild3.JPG" width="800"/><p><b>Köln</p></div>
 <div id="fst4" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild6.JPG" height="500"/><p><b>Haribo</p></div>
+<%}
+%>
 </body>
 </html>
