@@ -75,6 +75,7 @@ alert("You are not logged in");
         <li><a href="localhost:8087/pictureserver/Bilderanzeigen" style="color:#ffd700;">Bilder anzeigen</a></li>
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
+          <li><a href="ordner2.html">Deutschlandreise</a></li>
         </ul>
 
       </li>
