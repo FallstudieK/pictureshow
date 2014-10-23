@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ page
+language="java"
+contentType="text/html; charset=utf-8"
+pageEncoding="utf-8"
+import="java.sql.*"
+%> 
     <title>I-mag-Imago | Erinnerungen fürs Leben </title>
     <script type="text/javascript" src="javascript/fenster.js"></script>
     <meta charset="utf-8">
