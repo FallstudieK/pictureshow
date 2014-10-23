@@ -96,7 +96,7 @@ alert("You are not logged in");
     <div id="content">
       <h2 style="color:#ffd700;">Willkommen bei I-mag-Imago</h2>
       <p style="color:#ffd700;">Bilder sind wichtige Quellen der Vergangenheit, die wertvolle Momente verewigen und schöne Erinnerungen wieder zum Leben erwecken.</p>
-      <p>-Deshalb mag-I-Imago</p>
+      <p>- Deshalb mag-I-Imago -</p>
     </div>
     <div id="column">
       <div class="flickrbox">
