@@ -49,7 +49,7 @@ alert("You are not logged in");
 <br>
 <br>
 <br>
-<center><u><a href="Login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
+<center><u><a href="login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
 </div>
 <%} else {
 %>
