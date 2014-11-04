@@ -98,7 +98,10 @@ public class FileUploadServlet extends HttpServlet {
     //   String uploadPath = getServletContext().getRealPath("")
     //    + File.separator + file2;//UPLOAD_DIRECTORY; instead of file 2 for temp path
     String uploadPath = "C:\\Users\\koeppent\\Desktop\\Fallstudie\\PictureShow\\pictureserver\\uploadbilder";
-    log.debug(uploadPath.toString());
+
+
+      log.debug(uploadPath.toString());
+
 
     // creates the directory if it does not exist
     File uploadDir = new File(uploadPath);
