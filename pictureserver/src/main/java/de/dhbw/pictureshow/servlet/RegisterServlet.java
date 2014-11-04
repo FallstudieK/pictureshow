@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Collection;
@@ -69,7 +70,24 @@ public class RegisterServlet extends HttpServlet {
             session.setAttribute ("user", userName);
             session.setAttribute("email", user.getEmail());
             log.debug("Session Successful");
-            response.sendRedirect(url);
+
+              //Order für den user zur Bildablage erstellt
+              //String path = buf.toString()+"\\src\\main\\webapp\\picture\\user"+File.separator+email;                                    //uuid
+
+              String path1="c:/bilder";
+              File dir1 = new File(path1);
+              if (!dir1.exists()) {
+                  dir1.mkdir();
+              }
+
+
+
+              String path="c:/bilder/" + userName;
+              File dir = new File(path);
+              dir.mkdir();
+
+
+              response.sendRedirect(url);
 
 
         }else{
