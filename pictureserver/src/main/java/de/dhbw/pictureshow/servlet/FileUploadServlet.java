@@ -124,13 +124,14 @@ public class FileUploadServlet extends HttpServlet {
                 for (FileItem item : formItems) {
                     // processes only fields that are not form fields
                     if (!item.isFormField()) {
+
                         String fileName = new File(item.getName()).getName();
                         String filePath = uploadPath + File.separator + fileName;
                         File storeFile = new File(filePath);
-
+                        String bildname = fileName.substring(0, fileName.length() - 4);
                         transaction.begin();
                         Pictures picture1 = new Pictures();
-                        picture1.setTitle(filePath);
+                        picture1.setTitle(bildname);
                         picture1.setUsername(username);
                         // picture1.setUser(userId);
                         picture1.setFoldername("Standard");
