@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="styles/jquery.min.js"></script>
+</head>
+<body>
+<button type="button"  name="Standard" onclick="ladeAlbum();">Album</button>
+
+<div id="data"> </div>
+<script>
+function ladeAlbum(album)
+{
+// Removing all children from an element
+var element = document.getElementById("data");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);}
+var res= "BilderService?album="+album;
+$.getJSON(res, function(data) {
+    $.each(data, function(i, bild) {
+    var bildurl ="http://localhost:8087/pictureserver/rest/api/bild/"+bild.username+"/"+bild.title;
+   // alert(bildurl);
+if (document.getElementById(bildurl)) {}
+else {
+ $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" alt=\""+bildurl+"\">");
+         }
+    });
+});
+}
+</script>
+</body>
+</html>
