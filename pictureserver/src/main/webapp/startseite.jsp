@@ -136,15 +136,19 @@ alert("You are not logged in");
            // alert(bildurl);
         if (document.getElementById(bildurl)) {}
         else {
-         $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" alt=\""+bildurl+"\">");
+         $("#data").append("<li><a href=\"#\"><strong>"+bild.title+"</strong><img id=\"Bilder\" src=\""+bildurl+"\" style=\"height:200px;\" alt=\""+bildurl+"\" ></a></li>");
                  }
             });
         });
         }
         </script>
 
+       <!-- <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+                                                                     src="bilder/bild1.JPG" style="position: width="100%";width:
+                        234px; height:210px;" alt="" /></a></li>
 
-     <!--       <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+
+            <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"
