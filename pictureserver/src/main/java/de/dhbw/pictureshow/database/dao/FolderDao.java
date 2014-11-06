@@ -35,7 +35,7 @@ public class FolderDao extends JpaDao<UuidId, Folder> {
 
     @SuppressWarnings("unchecked")
     public Collection<Folder> findByUser(String username) {
-        Query query = entityManager.createQuery("select f from Folder f where f.username = :username");
+        Query query = entityManager.createQuery("select f from Folder f where f.username = :user");
         query.setParameter("user", username);
         return (Collection<Folder>) query.getResultList();
     }

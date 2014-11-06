@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="styles/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="data"> </div>
+<script>
+function ladeAlben()
+{
+// Removing all children from an element
+var element = document.getElementById("data");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);}
+var res= "FolderService";
+$.getJSON(res, function(data) {
+    $.each(data, function(i, folder) {
+    var foldername ="folder.fname";
+    alert(foldername);
+    var link ="Startseite.jsp";
+if (document.getElementById(foldername)) {}
+else {
+ $("#data").append($('<a href="'+ link + '">'+ foldername+'</a>'));
+         }
+    });
+});
+}
+</script>
+</body>
+</html>
