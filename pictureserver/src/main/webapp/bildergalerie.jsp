@@ -111,7 +111,7 @@ alert("You are not logged in");
         </form>
         <center>
             <form method="post" action="uploadFile" enctype="multipart/form-data">
-                Select file to upload:
+                Wähle Bilder zum Hochladen:
                 <input type="file" id="files" name="files[]" multiple/>
                 <output id="list"></output>
                 <br/><br/>

@@ -102,14 +102,14 @@ alert("You are not logged in");
     </div>
     <div id="column">
       <div class="flickrbox">
-        <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Minibilder</h2>
+        <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Meine Alben</h2>
         <ul>
-          <li><a href="ordner1.html"><img src="bilder/bild1.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="bilder/bild2.JPG"width="80" height="80" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="bilder/bild3.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
+          <li><a href="ordner1.html"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
+          <li><a href="#"><img src="bilder/ordner.png"width="80" height="80" alt="" /></a></li>
+          <li class="last"><a href="#"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
+          <!--<li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
           <li><a href="#"><img src="bilder/bild5.JPG" width="80" height="80" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="bilder/bild6.JPG" width="80" height="80" alt="" /></a></li>
+          <li class="last"><a href="#"><img src="bilder/bild6.JPG" width="80" height="80" alt="" /></a></li>-->
         </ul>
         <br class="clear" />
       </div>
@@ -138,6 +138,7 @@ alert("You are not logged in");
         if (document.getElementById(bildurl)) {}
         else {
          $("#data").append("<li><a href=\"#\"><strong>"+bild.title+"</strong><img id=\"Bilder\" src=\""+bildurl+"\" style=\"height:200px;\" alt=\""+bildurl+"\" ></a></li>");
+
                  }
             });
         });
@@ -183,12 +184,15 @@ alert("You are not logged in");
         <br class="clear"/>
     </div>
 </div>
+<div id="großansicht">
 <div onclick="closeall()" id="weisseflaeche"></div>
 <div onclick="closeall()" id="xbutton"></div>
 <div onclick="back()" id="pfeillinks"></div>
 <div onclick="next()" id="pfeilrechts"></div>
-<div id="fst1" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild1.JPG" height="500"/><p><b>Über den Wolken</p></div>
-<div id="fst2" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild2.JPG" width="800"/><p><b>Schokimuseum</p></div>
+<div>
+
+<div id="fst1" class="bildzoom" style="background-color:#ffd700;"><img src="<script type="text/javascript">document.write(bildurl);</script>"+bildurl+"" height="500"/><p><b><script type="text/javascript">document.write(bild.title);</script></p></div>
+<div id="fst2" class="bildzoom" style="background-color:#ffd700;"><img src=""+bildurl+"" width="800"/><p><b>Schokimuseum</p></div>
 <div id="fst3" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild5.JPG" width="800"/><p><b>Köln</p></div>
 <div id="fst4" class="bildzoom" style="background-color:#ffd700;"><img src="bilder/bild6.JPG" height="500"/><p><b>Haribo</p></div>
 
