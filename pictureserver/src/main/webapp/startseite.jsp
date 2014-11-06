@@ -10,6 +10,7 @@ import="java.sql.*"
 <title>I-mag-Imago | Erinnerungen fürs Leben  </title>
 <link rel="stylesheet" href="styles/layout.css" type="text/css" />
     <script type="text/javascript" src="javascript/fenster.js"></script>
+    <script type="text/javascript" src="styles/jquery.min.js"></script>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles/design.css">
     <link rel="stylesheet" type="text/css" href="styles/special.css">
@@ -81,6 +82,7 @@ alert("You are not logged in");
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
           <li><a href="ordner2.jsp">Deutschlandreise</a></li>
+          <li><a href="FolderAnzeigen.html"> Alben anzeigen</a></li>
         </ul>
 
       </li>
@@ -118,7 +120,31 @@ alert("You are not logged in");
 <div class="wrapper col4">
     <div id="services">
         <ul>
-            <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+        <div id="data"> </div>
+
+        <script>
+        ladeAlbum();
+        function ladeAlbum(album)
+        {
+        // Removing all children from an element
+        var element = document.getElementById("data");
+        while (element.firstChild) {
+          element.removeChild(element.firstChild);}
+        var res= "BilderService?album="+album;
+        $.getJSON(res, function(data) {
+            $.each(data, function(i, bild) {
+            var bildurl ="http://localhost:8087/pictureserver/rest/api/bild/"+bild.username+"/"+bild.title;
+           // alert(bildurl);
+        if (document.getElementById(bildurl)) {}
+        else {
+         $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" alt=\""+bildurl+"\">");
+                 }
+            });
+        });
+        }
+        </script>
+
+     <!--       <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"
@@ -147,6 +173,7 @@ alert("You are not logged in");
                                                                            src="C:\Users\boelkes\Pictures\Deutschland Wochenende\EMail\DSC_0169.JPG"
                                                                            style="position: width="100%";width: 234px;
                 height:210px;" alt="" /></a></li>
+                -->
         </ul>
         <br class="clear"/>
     </div>
