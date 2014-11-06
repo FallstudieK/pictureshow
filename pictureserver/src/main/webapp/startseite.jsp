@@ -50,7 +50,7 @@ alert("You are not logged in");
 <br>
 <br>
 <br>
-<center><u><a href="login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
+<center><u><a href="Login.html" style="color:#ffd700;">Jetzt einloggen!</a></u></center>
 </div>
 <%} else {
 %>
@@ -144,12 +144,12 @@ alert("You are not logged in");
         }
         </script>
 
-        <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+       <!-- <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                                      src="bilder/bild1.JPG" style="position: width="100%";width:
                         234px; height:210px;" alt="" /></a></li>
 
 
-     <!--       <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+            <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"
