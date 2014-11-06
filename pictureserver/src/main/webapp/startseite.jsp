@@ -144,6 +144,7 @@ alert("You are not logged in");
         }
         </script>
 
+
      <!--       <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
