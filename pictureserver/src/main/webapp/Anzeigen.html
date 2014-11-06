@@ -8,7 +8,7 @@
 <body>
 <button type="button"  name="Standard" onclick="ladeAlbum();">Album</button>
 
-<div id="data"> </div>
+<div id="bildurl"><div id="data"> </div></div>
 <script>
 function ladeAlbum(album)
 {
@@ -23,11 +23,23 @@ $.getJSON(res, function(data) {
    // alert(bildurl);
 if (document.getElementById(bildurl)) {}
 else {
- $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" alt=\""+bildurl+"\">");
+ $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" draggable=\"true\" alt=\""+bildurl+"\">"); //draggable=\"true\" hinzugefügt
          }
     });
 });
 }
+*/
 </script>
+<script> //script hinzugefügt
+
+<div id="div1" ondrop="drop(event)" dropzone="move" ondragover="allowDrop(event)"><button></div>
+
+<div draggable="true">
+<img id="drag1" src="../Documents/DHBW/Semester 3/Web-Programmierung/PictureServer/logo.jpg" draggable="true"
+ondragstart="drag(event)">
+</div>
+
+</script>
+/*
 </body>
 </html>

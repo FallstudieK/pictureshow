@@ -105,7 +105,7 @@ alert("You are not logged in");
         <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Minibilder</h2>
         <ul>
           <li><a href="ordner1.html"><img src="bilder/bild1.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="bilder/bild2.JPG" width="80" height="80" alt="" /></a></li>
+          <li><a href="#"><img src="bilder/bild2.JPG"width="80" height="80" alt="" /></a></li>
           <li class="last"><a href="#"><img src="bilder/bild3.JPG" width="80" height="80" alt="" /></a></li>
           <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
           <li><a href="#"><img src="bilder/bild5.JPG" width="80" height="80" alt="" /></a></li>
@@ -120,7 +120,7 @@ alert("You are not logged in");
 <div class="wrapper col4">
     <div id="services">
         <ul>
-        <div id="data"> </div>
+       <div id="bildurl"><div id="data"> </div></div>
 
         <script>
         ladeAlbum();
@@ -137,12 +137,16 @@ alert("You are not logged in");
            // alert(bildurl);
         if (document.getElementById(bildurl)) {}
         else {
-         $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" alt=\""+bildurl+"\">");
+         $("#data").append("<li><a href=\"#\"><strong>"+bild.title+"</strong><img id=\"Bilder\" src=\""+bildurl+"\" style=\"height:200px;\" alt=\""+bildurl+"\" ></a></li>");
                  }
             });
         });
         }
         </script>
+
+        <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+                                                                     src="bilder/bild1.JPG" style="position: width="100%";width:
+                        234px; height:210px;" alt="" /></a></li>
 
 
      <!--       <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
