@@ -81,8 +81,7 @@ alert("You are not logged in");
         <li><a href="localhost:8087/pictureserver/Bilderanzeigen" style="color:#ffd700;">Bilder anzeigen</a></li>
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
-          <li><a href="ordner2.jsp">Deutschlandreise</a></li>
-          <li><a href="FolderAnzeigen.html"> Alben anzeigen</a></li>
+          <li><a href="AlbenAnzeigen.jsp"> Alben anzeigen</a></li>
         </ul>
 
       </li>
@@ -137,19 +136,15 @@ alert("You are not logged in");
            // alert(bildurl);
         if (document.getElementById(bildurl)) {}
         else {
-         $("#data").append("<li><a href=\"#\"><strong>"+bild.title+"</strong><img id=\"Bilder\" src=\""+bildurl+"\" style=\"height:200px;\" alt=\""+bildurl+"\" ></a></li>");
+         $("#data").append("<img id=\"Bilder\" src=\""+bildurl+"\" alt=\""+bildurl+"\">");
                  }
             });
         });
         }
         </script>
 
-       <!-- <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
-                                                                     src="bilder/bild1.JPG" style="position: width="100%";width:
-                        234px; height:210px;" alt="" /></a></li>
 
-
-            <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
+     <!--       <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
                                                              src="bilder/bild1.JPG" style="position: width="100%";width:
                 234px; height:210px;" alt="" /></a></li>
             <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"

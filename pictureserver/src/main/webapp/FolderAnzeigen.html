@@ -5,10 +5,10 @@
     <title></title>
     <script type="text/javascript" src="styles/jquery.min.js"></script>
 </head>
-<body>
-
+<body id="top">
 <div id="data"> </div>
 <script>
+ladeAlben();
 function ladeAlben()
 {
 // Removing all children from an element
@@ -18,9 +18,9 @@ while (element.firstChild) {
 var res= "FolderService";
 $.getJSON(res, function(data) {
     $.each(data, function(i, folder) {
-    var foldername ="folder.fname";
-    alert(foldername);
-    var link ="Startseite.jsp";
+    var foldername = folder.fname;
+   // alert(foldername);
+    var link ="startseite.jsp";
 if (document.getElementById(foldername)) {}
 else {
  $("#data").append($('<a href="'+ link + '">'+ foldername+'</a>'));

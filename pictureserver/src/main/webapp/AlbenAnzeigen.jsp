@@ -7,11 +7,17 @@ contentType="text/html; charset=utf-8"
 pageEncoding="utf-8"
 import="java.sql.*"
 %> 
-    <title>I-mag-Imago | Erinnerungen fürs Leben</title>
+<title>I-mag-Imago | Erinnerungen fürs Leben  </title>
+<link rel="stylesheet" href="styles/layout.css" type="text/css" />
+    <script type="text/javascript" src="javascript/fenster.js"></script>
+    <script type="text/javascript" src="styles/jquery.min.js"></script>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles/design.css">
+    <link rel="stylesheet" type="text/css" href="styles/special.css">
     <link rel="stylesheet" href="styles/layout.css" type="text/css"/>
 </head>
 <body id="top">
+
 <%
 
     if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
@@ -75,7 +81,7 @@ alert("You are not logged in");
         <li><a href="localhost:8087/pictureserver/Bilderanzeigen" style="color:#ffd700;">Bilder anzeigen</a></li>
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
-          <li><a href="FolderAnzeigen.html">Alben anzeigen</a></li>
+          <li><a href="FolderAnzeigen.html"> Alben anzeigen</a></li>
         </ul>
 
       </li>
@@ -86,61 +92,29 @@ alert("You are not logged in");
     <br class="clear" />
   </div>
 </div>
-<div class="wrapper col5">
-    <div id="container">
-        <div id="content">
-            <h2 style="color:#ffd700;">Write A Comment</h2>
-
-            <div id="respond">
-                <form action="#" method="post">
-                    <p>
-                        <input type="text" name="name" id="name" value="" size="22"/>
-                        <label for="name">
-                            <small>Name (required)</small>
-                        </label>
-                    </p>
-                    <!--
-                    <p>
-                      <input type="text" name="email" id="email" value="" size="22" />
-                      <label for="email"><small>Mail (required)</small></label>
-                    </p>
-                    -->
-                    <p>
-                        <textarea name="comment" id="comment" cols="100%" rows="10"></textarea>
-                        <label for="comment" style="display:none;">
-                            <small>Comment (required)</small>
-                        </label>
-                    </p>
-                    <p>
-                        <input name="submit" type="submit" id="submit" value="Submit Form"/>
-                        &nbsp;
-                        <input name="reset" type="reset" id="reset" tabindex="5" value="Reset Form"/>
-                    </p>
-                </form>
-            </div>
-        </div>
-        <div id="column">
-            <div class="subnav">
-                <h2>Benutzer Navigation</h2>
-                <ul>
-                    <li><a href="bildergalerie.jsp">Bildergalerie</a>
-                        <ul>
-                            <li><a href="ordner2.jsp">Deutschlandreise</a></li>
-                            <li><a href="ordner2.html">Ordner 2</a></li>
-                            <li><a href="ordner3.html">Ordner 2</a></li>
-                            <!-- <ul>
-                               <li><a href="#">Unterordner 1</a></li>
-                               <li><a href="#">Unterordner 2</a></li>
-                             </ul>
-                           </li>-->
-                        </ul>
-                    </li>
-                    <li><a href="startseite.jsp">Startseite</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<div id="data"> </div>
+<script>
+ladeAlben();
+function ladeAlben()
+{
+// Removing all children from an element
+var element = document.getElementById("data");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);}
+var res= "FolderService";
+$.getJSON(res, function(data) {
+    $.each(data, function(i, folder) {
+    var foldername = folder.fname;
+   // alert(foldername);
+    var link ="startseite.jsp";
+if (document.getElementById(foldername)) {}
+else {
+ $("#data").append($('<p><a href="'+ link + '">'+ foldername+'</a></p>'));
+         }
+    });
+});
+}
+</script>
 <%}
 %>
 </body>

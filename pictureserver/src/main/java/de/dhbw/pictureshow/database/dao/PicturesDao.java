@@ -45,5 +45,4 @@ public class PicturesDao extends JpaDao<UuidId, Pictures> {
         query.setParameter("album", album);
         return query.getResultList();
     }
-
 }

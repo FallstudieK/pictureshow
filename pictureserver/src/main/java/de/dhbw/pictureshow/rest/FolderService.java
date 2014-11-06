@@ -24,7 +24,7 @@ import java.util.Collection;
 /**
  * Created by zaiser on 05.11.2014.
  */
-@WebServlet(name="minBilder", urlPatterns ={"/FolderService"})
+@WebServlet(name="Alben", urlPatterns ={"/FolderService"})
 public class FolderService extends HttpServlet {
     private static final Logger log = LoggerFactory.getLogger(UserService.class);
 
