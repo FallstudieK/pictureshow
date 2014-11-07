@@ -76,11 +76,12 @@ alert("You are not logged in");
       <p style="color:#ffd700;">Erinnerungen fürs Leben</p>
     </div>
     <ul id="topnav">
-      <li><a href="bildergalerie.jsp" style="color:#ffd700;">Bildergalerie</a>
+      <li><a href="#" style="color:#ffd700;">Bildergalerie</a>
         <ul>
         <li><a href="localhost:8087/pictureserver/Bilderanzeigen" style="color:#ffd700;">Bilder anzeigen</a></li>
           <li><a href="AlbumAnlegen.jsp"> Neues Album</a></li>
           <li><a href="bildergalerie.jsp">Fotos hochladen</a></li>
+          <li><a href="Ordner2.jsp"> Beispielordner</a></li>
           <li><a href="AlbenAnzeigen.jsp"> Alben anzeigen</a></li>
         </ul>
 
@@ -131,7 +132,7 @@ $.getJSON(res, function(data) {
     $.each(data, function(i, folder) {
     var foldername = folder.fname;
    // alert(foldername);
-    var link ="startseite.jsp";
+    var link ="Albenanzeige.jsp?ordner="+foldername;
 if (document.getElementById(foldername)) {}
 else {
  $("#data1").append($('<li><div><img src="bilder/ordner.png" width="80" height="80" alt="" /></div><div><a href="'+ link + '">'+ foldername+'</a></div></li>'));
@@ -166,7 +167,6 @@ else {
         });
         }
         </script>
-
         </ul>
         <br class="clear"/>
     </div>
