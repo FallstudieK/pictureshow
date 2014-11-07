@@ -102,11 +102,11 @@ alert("You are not logged in");
     <div id="column">
      <div class="flickrbox">
              <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Meine Alben</h2>
-             <ul>
-               <li><a href="ordner1.html"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
+             <ul> <div id="data1"> </div>
+             <!--  <li><a href="ordner1.html"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
                <li><a href="#"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
                <li class="last"><a href="#"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
-              <!-- <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
+              <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
                <li><a href="#"><img src="bilder/bild5.JPG" width="80" height="80" alt="" /></a></li>
                <li class="last"><a href="#"><img src="bilder/bild6.JPG" width="80" height="80" alt="" /></a></li>-->
              </ul>
@@ -117,6 +117,29 @@ alert("You are not logged in");
     <br class="clear" />
   </div>
 </div>
+
+<script>
+ladeAlben();
+function ladeAlben()
+{
+// Removing all children from an element
+var element = document.getElementById("data1");
+while (element.firstChild) {
+  element.removeChild(element.firstChild);}
+var res= "FolderService";
+$.getJSON(res, function(data) {
+    $.each(data, function(i, folder) {
+    var foldername = folder.fname;
+   // alert(foldername);
+    var link ="startseite.jsp";
+if (document.getElementById(foldername)) {}
+else {
+ $("#data1").append($('<li><div><img src="bilder/ordner.png" width="80" height="80" alt="" /></div><div><a href="'+ link + '">'+ foldername+'</a></div></li>'));
+         }
+    });
+});
+}
+</script>
 <div class="wrapper col4">
     <div id="services">
         <ul>
@@ -144,41 +167,6 @@ alert("You are not logged in");
         }
         </script>
 
-       <!-- <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
-                                                                     src="bilder/bild1.JPG" style="position: width="100%";width:
-                        234px; height:210px;" alt="" /></a></li>
-
-
-            <li><a href="#"><strong>Über den Wolken</strong><img onclick="oeffnefenster('1')" width="100%"
-                                                             src="bilder/bild1.JPG" style="position: width="100%";width:
-                234px; height:210px;" alt="" /></a></li>
-            <li><a href="#"><strong>Schokimuseum</strong><img onclick="oeffnefenster('2')" width="100%"
-                                                             src="bilder/bild2.JPG" style="position: width="100%";width:
-                234px; height:210px;" alt="" /></a></li>
-            <li><a href="#"><strong>Köln</strong><img onclick="oeffnefenster('3')" width="100%"
-                                                             src="bilder/bild5.JPG" style="position: width="100%";width:
-                234px; height:210px;" alt="" /></a></li>
-            <li class="last"><a href="#"><strong>Haribo</strong><img onclick="oeffnefenster('4')" width="100%"
-                                                                          src="bilder/bild6.JPG"
-                                                                          style="position: width="100%";width: 234px;
-                height:210px;" alt="" /></a></li>
-            <li><a href="#"><strong>I-mag-Imago</strong><img width="100%"
-                                                             src="C:\Users\boelkes\Pictures\Fotoshooting Jasmin\DSC02232.JPG"
-                                                             style="position: width="100%";width: 234px; height:210px;"
-                alt="" /></a></li>
-            <li><a href="#"><strong>I-mag-Imago</strong><img width="100%"
-                                                             src="C:\Users\boelkes\Pictures\Deutschland Wochenende\DSC_0351.JPG"
-                                                             style="position: width="100%";width: 234px; height:210px;"
-                alt="" /></a></li>
-            <li><a href="#"><strong>I-mag-Imago</strong><img width="100%"
-                                                             src="C:\Users\boelkes\Pictures\Deutschland Wochenende\DSC_9999.JPG"
-                                                             style="position: width="100%";width: 234px; height:210px;"
-                alt="" /></a></li>
-            <li class="last"><a href="#"><strong>I-mag-Imago </strong><img width="100%"
-                                                                           src="C:\Users\boelkes\Pictures\Deutschland Wochenende\EMail\DSC_0169.JPG"
-                                                                           style="position: width="100%";width: 234px;
-                height:210px;" alt="" /></a></li>
-                -->
         </ul>
         <br class="clear"/>
     </div>
