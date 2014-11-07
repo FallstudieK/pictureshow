@@ -100,19 +100,20 @@ alert("You are not logged in");
       <p>- Deshalb mag-I-Imago -</p>
     </div>
     <div id="column">
-      <div class="flickrbox">
-        <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Minibilder</h2>
-        <ul>
-          <li><a href="ordner1.html"><img src="bilder/bild1.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="bilder/bild2.JPG"width="80" height="80" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="bilder/bild3.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
-          <li><a href="#"><img src="bilder/bild5.JPG" width="80" height="80" alt="" /></a></li>
-          <li class="last"><a href="#"><img src="bilder/bild6.JPG" width="80" height="80" alt="" /></a></li>
-        </ul>
-        <br class="clear" />
-      </div>
-    </div>
+     <div class="flickrbox">
+             <!--Bilder in Kleinformat--><h2 class="title" style="color:#ffd700;">Meine Alben</h2>
+             <ul>
+               <li><a href="ordner1.html"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
+               <li><a href="#"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
+               <li class="last"><a href="#"><img src="bilder/ordner.png" width="80" height="80" alt="" /></a></li>
+              <!-- <li><a href="#"><img src="bilder/bild4.JPG" width="80" height="80" alt="" /></a></li>
+               <li><a href="#"><img src="bilder/bild5.JPG" width="80" height="80" alt="" /></a></li>
+               <li class="last"><a href="#"><img src="bilder/bild6.JPG" width="80" height="80" alt="" /></a></li>-->
+             </ul>
+             <br class="clear" />
+           </div>
+         </div>
+
     <br class="clear" />
   </div>
 </div>
